@@ -32,7 +32,7 @@
  "name": "gohugo-theme-ananke",
  "repository": {
   "type": "git",
-  "url": "git+https://github.com/theNewDynamic/gohugo-theme-ananke.git"
+  "url": "git+https://gitlab.com/rs-site/rs-theme.git"
  },
  "scripts": {
   "version": "auto-changelog -p --template keepachangelog --commit-limit 0 \u0026\u0026 git add CHANGELOG.md"
