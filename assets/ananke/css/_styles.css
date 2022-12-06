@@ -65,3 +65,13 @@
 .pad-bot-5 {
   padding-bottom: .5rem
 }
+
+hr.footer-line {
+  border-color: rgba(0,0,0,.1);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  margin-bottom: 2rem;
+  /*height: 0;*/
+  margin-inline-start: 20%;
+  margin-inline-end: 20%;
+}

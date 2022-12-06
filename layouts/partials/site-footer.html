@@ -1,5 +1,9 @@
 <!--<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">-->
 <footer class="center" role="contentinfo">
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+        <!--    <hr class="footer-line">-->
+        <div class="bb b--black-10"></div>
+    </div>
     <div class="tc">
         <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine1 }}</div>
         <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine2 }}</div>
@@ -7,7 +11,7 @@
     </div>
     <div class="flex justify-between">
         <div class="center f6 fw4 no-underline black-70 dn dib-ns pv4 ph3">
-            <a class="hover-white black-70" href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">{{
+            <a class="hover-black black-70" href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">{{
                 .Site.Params.footerPrivacy }}</a>
             Copyright &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }}, {{ now.Format "2006"}}
             All rights reserved.{{ end }}
