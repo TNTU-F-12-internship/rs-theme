@@ -1,0 +1,19 @@
+{{/* 
+	GetMenuName
+
+
+
+{{/* Declare a new string variable */}}
+{{ $menu_name := "" }}
+
+{{/* Use the value from front matter if present */}}
+{{ with .Params }}
+  {{/* This is the default case, the menu_title is set */}}
+  {{ $menu_name = .menu_title }}
+{{ else }}
+  {{ $menu_name = .Params.title }}
+{{ end }}
+
+{{/* return result */}}
+{{ return $menu_name }}
+*/}}

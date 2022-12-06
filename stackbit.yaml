@@ -148,6 +148,10 @@ models:
       - type: string
         name: layout
         label: layout
+      - type: string
+        name: menu_title
+        label: Menu Title
+        description: The title of the page in header menu.
   basicpage:
     type: page
     label: Basic Page

@@ -18,3 +18,50 @@
 .nested-links a{
   overflow-wrap: break-word;
 }
+
+#site-logo {
+  max-height: 60px;
+}
+
+#language_icon {
+  text-transform: uppercase;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  border-radius: 3px;
+  margin-left: -30px;
+  background-color: #FBFBFBFF;
+  min-width: 225px;
+  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown-content > a {
+  padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.padding-banner-lg {
+  padding-top: calc(8rem - 49px);
+  padding-bottom: 8rem;
+}
+
+.padding-banner-sm {
+  padding-top: 4rem;
+  padding-bottom: calc(4rem + 49px);
+}
+
+.pad-bot-5 {
+  padding-bottom: .5rem
+}

@@ -1,8 +1,5 @@
 {
  "author": "budparr",
- "bugs": {
-  "url": "https://github.com/theNewDynamic/gohugo-theme-ananke/issues"
- },
  "comments": {
   "dependencies": {},
   "devDependencies": {
@@ -33,9 +30,6 @@
  "repository": {
   "type": "git",
   "url": "git+https://gitlab.com/rs-site/rs-theme.git"
- },
- "scripts": {
-  "version": "auto-changelog -p --template keepachangelog --commit-limit 0 \u0026\u0026 git add CHANGELOG.md"
  },
  "version": "2.7.0"
 }
