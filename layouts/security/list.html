@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div class="flex-l mt2 mw8 center">
+    <article class="center cf pv5 ph3 ph4-ns mw7">
+        <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "mid-gray" }}">
+        {{ .Content }}
+        </div>
+    </article>
+</div>
+
+security/list.html<br>
+
+{{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
+{{/* Searching in "security" folder. */}}
+{{ $mySections := slice "security" }}
+
+{{/* Create a variable with that section to use in multiple places. */}}
+{{ $security_section := where .Site.RegularPages "Section" "in" $mySections }}
+
+{{/* Check to see if the section is defined for ranging through it */}}
+{{ $security_section_count := len $security_section }}
+
+{{ if ge $security_section_count 1 }}
+
+<div class="pa3 pa4-ns w-100 w-70-ns center">
+
+    <section class="w-100 mw8">
+        {{/* Range through the section */}}
+        {{ range $security_section }}
+        <div class="relative w-100 mb4">
+            {{ .Render "section-image-right" }}
+        </div>
+        {{ end }}
+    </section>
+
+</div>
+{{ end }}
+
+<div class="center mt2 mw8 tc">
+    {{ .Params.final_message }}
+</div>
+
+{{ end }}

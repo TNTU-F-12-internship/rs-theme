@@ -152,6 +152,33 @@ models:
         name: menu_title
         label: Menu Title
         description: The title of the page in header menu.
+  security:
+    type: page
+    label: Security
+    file: ICT.md
+    hideContent: false
+    singleInstance: true
+    layout: security/list.html
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: date
+        name: date
+        label: Date
+      - type: image
+        name: featured_image
+        label: Featured Image
+        description: Image displayed at in the pages intro section
+      - type: string
+        name: description
+        label: Description
+      - type: enum
+        name: tags
+        label: tags
+      - type: boolean
+        name: draft
+        label: Draft
   basicpage:
     type: page
     label: Basic Page
@@ -185,33 +212,6 @@ models:
           - label: Main Menu
             value: main
             type: object
-  section:
-    type: page
-    label: Section
-    match: "*/_index.md"
-    layout: _default/list.html
-    fields:
-      - type: string
-        name: title
-        label: Title
-        description: The title of the page.
-      - type: image
-        name: featured_image
-        label: Featured Image
-        description: Image displayed at in the pages intro section
-      - type: string
-        name: description
-        label: Description
-      - type: date
-        name: date
-        label: Date
-      - type: enum
-        name: menu
-        label: menu
-        default: main
-        options:
-          - label: main
-            value: main
   post:
     type: page
     label: Posts
