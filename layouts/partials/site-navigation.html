@@ -14,16 +14,19 @@
 
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
+
         {{ if .HasChildren }}
         <li class="dropdown list f5 f4-ns fw4 dib pl4 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
           <a class="hover-white no-underline white-90" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
+            <span>{{ .PageRef }}</span>
           </a>
           <ul class="sub-menu dropdown-content">
             {{ range .Children }}
               <li class="list f5 f4-ns fw4 dib pa2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
                 <a class="hover-black no-underline black-70" href="{{ .URL }}">{{ .Name }}</a>
+            <span>{{ .PageRef }}</span>
               </li>
             {{ end }}
           </ul>
@@ -33,6 +36,7 @@
           <a class="hover-white no-underline white-90" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
+            <span>{{ .PageRef }}</span>
           </a>
         </li>
         {{ end }}

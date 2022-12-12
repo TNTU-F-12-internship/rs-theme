@@ -1,17 +1,16 @@
 {{ define "main" }}
+
 <div class="flex-l mt2 mw8 center">
-    <article class="center cf pv5 ph3 ph4-ns mw7">
-        <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "mid-gray" }}">
+    <article class="center cf pt4 pb5 ph3 ph4-ns">
+        <div class="nested-copy-line-height lh-copy f3 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
         {{ .Content }}
         </div>
     </article>
 </div>
 
-security/list.html<br>
-
 {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
-{{/* Searching in "security" folder. */}}
-{{ $mySections := slice "security" }}
+{{/* Searching in "img-right" folder. */}}
+{{ $mySections := slice "img-right" }}
 
 {{/* Create a variable with that section to use in multiple places. */}}
 {{ $security_section := where .Site.RegularPages "Section" "in" $mySections }}
@@ -23,7 +22,7 @@ security/list.html<br>
 
 <div class="pa3 pa4-ns w-100 w-70-ns center">
 
-    <section class="w-100 mw8">
+    <section class="w-100 mw9">
         {{/* Range through the section */}}
         {{ range $security_section }}
         <div class="relative w-100 mb4">
@@ -35,7 +34,7 @@ security/list.html<br>
 </div>
 {{ end }}
 
-<div class="center mt2 mw8 tc">
+<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
     {{ .Params.final_message }}
 </div>
 
