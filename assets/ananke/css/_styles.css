@@ -75,3 +75,19 @@ hr.footer-line {
   margin-inline-start: 20%;
   margin-inline-end: 20%;
 }
+
+figure {
+  margin-inline-start: 10px;
+  margin-inline-end: 10px;
+}
+
+figcaption {
+  text-align: center;
+  line-height: 2;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+figcaption h4 {
+  font-weight: normal;
+}
