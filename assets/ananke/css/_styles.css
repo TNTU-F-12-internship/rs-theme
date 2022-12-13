@@ -23,6 +23,12 @@
   max-height: 60px;
 }
 
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
 #language_icon {
   text-transform: uppercase;
 }
@@ -37,9 +43,9 @@
   position: absolute;
   border-radius: 3px;
   margin-left: -30px;
-  background-color: #FBFBFBFF;
+  background-color: #FFFFFFFF;
   min-width: 225px;
-  box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4);
   padding: 12px 16px;
   z-index: 1;
 }
