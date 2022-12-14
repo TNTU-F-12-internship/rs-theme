@@ -59,13 +59,13 @@
 }
 
 .padding-banner-lg {
-  padding-top: calc(8rem - 49px);
+  padding-top: calc(8rem + 35px);
   padding-bottom: 8rem;
 }
 
 .padding-banner-sm {
-  padding-top: 4rem;
-  padding-bottom: calc(4rem + 49px);
+  padding-top: calc(4rem + 35px);
+  padding-bottom: 4rem;
 }
 
 .pad-bot-5 {

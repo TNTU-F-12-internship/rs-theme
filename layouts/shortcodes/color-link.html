@@ -1,0 +1,7 @@
+
+{{ $path := .Get "path" }}
+{{ $link_title := .Get "link_title" }}
+{{ $color := .Site.Params.link_color }}
+{{ $target := .Get "target" }}
+
+<a href="{{ $path }}" style="color:{{ $color }};" target="{{ $target | default "_self" }}">{{ $link_title }}</a>

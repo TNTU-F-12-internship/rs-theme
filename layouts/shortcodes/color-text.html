@@ -1,0 +1,10 @@
+
+{{ $text := .Get "text" }}
+{{ $color := .Get "color" }}
+
+{{ if $color }}
+{{ else }}
+    {{ $color = .Site.Params.middle_title_color_code }}
+{{ end }}
+
+<span style="color:{{ $color }};" >{{ $text }}</span>
