@@ -1,12 +1,16 @@
-<nav class="pv3 ph3 ph4-ns sticky-header" role="navigation">
+<nav class="pv2 ph3 ph4-ns sticky-header" role="navigation">
   <div class="flex-l justify-between items-center center">
-    <a href="{{ .Site.Home.RelPermalink }}" class="f3 fw2 hover-white no-underline white-90 dib">
+    <div class="flex-l items-center f5 f4-ns fw4 pl4 white">
+    <a href="{{ .Site.Home.RelPermalink }}" >
       {{ with .Site.Params.siteLogo }}
-        <img src="{{ relURL . }}" class="w100 mw5-ns" id="site-logo" alt="{{ $.Site.Title }}" />
-      {{ else }}
-        {{ .Site.Title }}
+        <img src="{{ relURL . }}" class="w100 mw3-ns" id="site-logo" alt="{{ $.Site.Title }}" />
       {{ end }}
+
     </a>
+      <a href="{{ .Site.Home.RelPermalink }}" class="f4 fw2 pl3 hover-white no-underline white-90">
+        {{ .Site.Title }}
+      </a>
+    </div>
     <div class="flex-l items-center">
       {{ if .Site.Menus.main }}
       <ul class="{{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pr0 ml3" "pl0 mr3" }}">
