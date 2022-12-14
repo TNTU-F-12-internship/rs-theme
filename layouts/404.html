@@ -1,8 +1,26 @@
-{{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
+{{ define "header" }}
+{{ if .Site.Params.header_image }}
+<header class="cover bg-center" style="background-image: url('{{ .Site.Params.header_image }}');">
+    <div class="bg-black-20">
+        {{ partial "site-navigation.html" . }}
+        <div class="tc-l padding-banner-sm ph3 ph4-ns w-80 center">
+            <h1 class="f2 f1-l white-90 lh-title">404</h1>
+        </div>
+    </div>
+</header>
+{{ else }}
+<header>
+    <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
+    {{ partial "site-navigation.html" . }}
+    </div>
+</header>
+{{ end }}
+{{ end }}
+
 {{ define "main" }}
     <article class="center cf pv5 measure-wide-l">
-      <h1>
+      <h2>
           The page you are looking for was not found.
-      </h1>
+      </h2>
     </article>
 {{ end }}

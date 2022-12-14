@@ -97,3 +97,21 @@ figcaption {
 figcaption h4 {
   font-weight: normal;
 }
+
+/* make footer bottom on small page */
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* make footer bottom on small page */
+.page-content {
+  padding-bottom: 265px;    /* Footer height */
+}
+
+/* make footer bottom on small page */
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}

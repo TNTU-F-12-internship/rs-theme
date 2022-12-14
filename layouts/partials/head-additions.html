@@ -1,6 +1,9 @@
 <script defer language="javascript" type="text/javascript"  src="{{ "/js/myscripts.js" | urlize | relURL }}"></script>
 <style>
     .image-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
         background: url("{{ .Site.Params.header_image }}") right;
         box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.4);
         z-index: 99;
