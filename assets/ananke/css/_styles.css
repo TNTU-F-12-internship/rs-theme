@@ -33,6 +33,10 @@
   text-transform: uppercase;
 }
 
+.text-bold {
+  font-weight: bold;
+}
+
 .dropdown {
   position: relative;
   display: inline-block;
