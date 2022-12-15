@@ -5,24 +5,21 @@
 
 {{ define "main" }}
   {{ $section := .Site.GetPage "section" .Section }}
-_default/single<br>
-<br>
-$section: {{ $section }}<br>
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+  <article class="flex-l flex-wrap justify-between mw8 center ph3 post-content">
     <header class="mt4 w-100">
       <aside class="instapaper_ignoref b helvetica tracked">
           {{/*
           CurrentSection allows us to use the section title instead of inferring from the folder.
           https://gohugo.io/variables/page/#section-variables-and-methods
           */}}
-        {{with .CurrentSection.Title }}{{. | upper }}{{end}}
+<!--        {{with .CurrentSection.Title }}{{. | upper }}{{end}}-->
       </aside>
-      {{ partial "social-share.html" . }}
-      _default/single<br>
+<!--      {{ partial "social-share.html" . }}-->
       <br>
-      <h1 class="f1 athelas mt3 mb1">
-        {{- .Title -}}
-      </h1>
+<!--      <h1 class="f1 athelas mt3 mb1">-->
+<!--        {{- .Title -}}-->
+<!--      </h1>-->
       {{ with .Params.author | default .Site.Params.author }}
       <p class="tracked">
         {{ $.Render "by" }} <strong>
@@ -52,7 +49,7 @@ $section: {{ $section }}<br>
         <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
       {{ end }}
     </header>
-    <div class="nested-copy-line-height lh-copy {{ $.Param "post_content_classes"  | default "serif"}} f4 nested-links {{ $.Param "text_color" | default "dark-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }} w-two-thirds-l">
+    <div class="nested-copy-line-height lh-solid {{ $.Param "post_content_classes"  | default "serif"}} f4-5 nested-links {{ $.Param "text_color" | default "dark-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }}">
       {{- .Content -}}
       {{- partial "tags.html" . -}}
       <div class="mt6 instapaper_ignoref">
@@ -65,8 +62,8 @@ $section: {{ $section }}<br>
       </div>
     </div>
 
-    <aside class="w-30-l mt6-l">
-      {{- partial "menu-contextual.html" . -}}
-    </aside>
+<!--    <aside class="w-30-l mt6-l">-->
+<!--      {{- partial "menu-contextual.html" . -}}-->
+<!--    </aside>-->
   </article>
 {{ end }}

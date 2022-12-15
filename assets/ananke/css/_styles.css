@@ -124,3 +124,31 @@ footer {
   object-fit: contain;
   width: 100%;
 }
+
+.link-active:focus {
+  outline: none;
+}
+
+.post-content {
+  line-height: 0.25
+}
+
+.post-content h2 {
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+  font-size: 1.25em;
+}
+
+.post-content .f4-5 {
+  font-size: 1.12rem;
+}
+
+.post-content p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.post-content figcaption h4 {
+  margin-top: 0.5em;
+  font-size: 1rem;
+}
