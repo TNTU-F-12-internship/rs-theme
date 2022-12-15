@@ -2,8 +2,7 @@
 {{ $text := .Get "text" }}
 {{ $color := .Get "color" }}
 
-{{ if $color }}
-{{ else }}
+{{ if not $color }}
     {{ $color = .Site.Params.middle_title_color_code }}
 {{ end }}
 

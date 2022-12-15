@@ -139,11 +139,11 @@ footer {
   font-size: 1.25em;
 }
 
-.post-content .f4-5 {
+.f4-5 {
   font-size: 1.12rem;
 }
 
-.post-content p {
+p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
@@ -151,4 +151,14 @@ footer {
 .post-content figcaption h4 {
   margin-top: 0.5em;
   font-size: 1rem;
+}
+
+.privacy-page h2,
+.privacy-page h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.privacy-page h3 {
+
 }

@@ -1,10 +1,18 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
-  <div class="flex-l mt2 mw9 center">
+  <div class="flex-l mt2 mw9 center color-link">
     <article class="center cf pv5 ph3 ph4-ns mw8">
+
+      {{ if eq .Params.single_page "privacy"}}
+      <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
+        {{ .Content }}
+      </div>
+      {{ else }}
       <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
         {{ .Content }}
       </div>
+      {{ end }}
+
     </article>
   </div>
 <div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
