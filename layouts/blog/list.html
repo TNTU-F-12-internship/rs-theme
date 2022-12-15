@@ -1,33 +1,29 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 
 {{ define "main" }}
-post/list.html<br>
-<br>
+
 {{/* This template is the same as the default and is here to demonstrate that if you have a content directory
      called "post" you can create a layouts directory, just for that section. */}}
 
 {{/* Define a section to pull recent posts from. For Hugo 0.20 this will default to the section with the most number of pages. */}}
-{{ $mainSections := .Site.Params.mainSections | default (slice "blog") }}
-$mainSection: {{ $mainSections }}<br>
+{{ $mainSections := slice "blog" }}
+
 {{/* Create a variable with that section to use in multiple places. */}}
 {{ $section := where .Site.RegularPages "Section" "in" $mainSections }}
-$section: {{ $section }}<br>
+
 {{/* Check to see if the section is defined for ranging through it */}}
 {{ $section_count := len $section }}
-$section_count: {{ $section_count }}<br>
+
 {{ if ge $section_count 1 }}
 {{/* Derive the section name  */}}
-{{ $section_name := index (.Site.Params.mainSections) 0 }}
-$section_name: {{ $section_name }}<br>
+{{ $main_section_name := index (.Site.Params.mainSections) 0 }}
 
-<div class="pa3 pa4-ns w-100 w-70-ns center">
+<div class="pa3 pa4-ns w-100 w-60-ns center">
 
   {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
-  $n_posts: {{ $n_posts }}<br>
 
-  <section class="w-100 mw8">
+  <section class="w-100">
     {{/* Range through the first $n_posts items of the section */}}
-    .Paginator.Pages: {{ .Paginator.Pages }}<br>
     {{ range .Paginator.Pages }}
     <div class="relative w-100 mb4">
       {{ .Render "summary-with-image" }}
@@ -37,4 +33,5 @@ $section_name: {{ $section_name }}<br>
   {{ template "_internal/pagination.html" . }}
 </div>
 {{ end }}
+
 {{ end }}

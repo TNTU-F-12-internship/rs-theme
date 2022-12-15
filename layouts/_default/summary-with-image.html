@@ -5,8 +5,8 @@
       {{ if .Params.summary_image }}
       {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
       <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3-ns" "pr3-ns" }} mb4 mb0-ns w-100 w-40-ns">
-      <a href="{{.RelPermalink}}" class="db grow">
-        <img src="{{ .Params.summary_image }}" class="img" alt="image from {{ .Title }}">
+      <a href="{{.RelPermalink}}" class="db grow w-100">
+        <img src="{{ .Params.summary_image }}" class="img content-image" alt="image from {{ .Title }}">
       </a>
       </div>
       {{ else }}
@@ -20,8 +20,7 @@
         {{ end }}
       {{ end }}
       <div class="blah w-100{{ if $featured_image }} w-60-ns {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3-ns" "pl3-ns" }}{{ end }}">
-        _default/summary-with-image.html
-        <h1 class="f3 fw1 athelas mt0 lh-title">
+        <h1 class="f3 fw1 athelas mt0 lh-title text-bold" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
           <a href="{{.RelPermalink}}" class="color-inherit dim link">
             {{ .Title }}
             </a>
@@ -34,7 +33,7 @@
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
           {{ .Summary }}
         </div>
-          <a href="{{.RelPermalink}}" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">{{ $.Param "read_more_copy" | default (i18n "readMore") }}</a>
+          <a href="{{.RelPermalink}}" class="ba white br2 dib f7 hover-bg-moon-gray link mt2 ph3 pv1" style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};">{{ $.Param "read_more_copy" | default (i18n "readMore") }}</a>
         {{/* TODO: add author
         <p class="f6 lh-copy mv0">By {{ .Author }}</p> */}}
       </div>

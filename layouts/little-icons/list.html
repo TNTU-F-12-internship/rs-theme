@@ -25,19 +25,19 @@
 {{ $mySections := slice "little-icons" }}
 
 {{/* Create a variable with that section to use in multiple places. */}}
-{{ $security_section := where .Site.RegularPages "Section" "in" $mySections }}
+{{ $section := where .Site.RegularPages "Section" "in" $mySections }}
 
 {{/* Check to see if the section is defined for ranging through it */}}
-{{ $security_section_count := len $security_section }}
+{{ $section_count := len $section }}
 
-{{ if ge $security_section_count 1 }}
+{{ if ge $section_count 1 }}
 
 <div class="pb6-l pb5-m w-100 w-70-ns center">
 
 
         <div class="flex flex-wrap justify-center items-center">
         {{/* Range through the section */}}
-        {{ range $security_section }}
+        {{ range $section }}
             <div class="w-30-l w-50-m w-100-ns pa3">
             {{ .Content }}
             </div>

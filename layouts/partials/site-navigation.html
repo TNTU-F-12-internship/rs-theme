@@ -26,7 +26,7 @@
           </a>
           <ul class="sub-menu dropdown-content">
             {{ range .Children }}
-              <li class="list f5 f4-ns fw4 dib pa2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
+              <li class="list f6 f5-ns fw4 dib pa2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
                 <a class="hover-black no-underline black-70" href="{{ .URL }}">{{ .Name }}</a>
             <span>{{ .PageRef }}</span>
               </li>
@@ -43,14 +43,6 @@
         </li>
         {{ end }}
         {{ end }}
-<!--          {{ range .Site.Menus.main }}-->
-<!--          <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">-->
-<!--            <a class="hover-white no-underline white-90" href="{{ .URL }}" title="{{ i18n "pageTitle" . }}">-->
-<!--&lt;!&ndash;              {{ .URL | title | replaceRE "Ua" "$1" | replaceRE "/" "$1"}}&ndash;&gt;-->
-<!--              {{ .Name }}-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          {{ end }}-->
       </ul>
       {{ end }}
       {{ partial "i18nlist.html" . }}
