@@ -1,6 +1,45 @@
 {{ define "main" }}
+
+{{ if eq .Params.layout "for-img-section" }}
+ <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center mw7 lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
+    {{ .Content }}
+  </article>
+
+{{ $folder := .Params.sections_folder }}
+{{ $mySections := slice $folder }}
+{{ $sections := where .Site.RegularPages "Section" "in" $mySections }}
+{{ $sections_count := len $sections }}
+
+{{ if ge $sections_count 1 }}
+<div class="pb6-l pb5-m w-100 w-60-ns center">
+    <div class="flex flex-wrap justify-center items-center">
+        {{/* Range through the section */}}
+        {{ range $sections }}
+        <div class="w-50-l w-50-m w-100-ns pa4">
+            <a class="no-underline" href="{{ .Params.path }}" >
+                <h2 class="f2 tc" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+                {{ .Title }}
+                </h2>
+            </a>
+            <a href="{{ .Params.path }}" >
+                <img src="{{ .Params.section_image }}" class="img {{ .Params.img_render_class }}" alt="{{ .Params.alt }}">
+                <figcaption>{{ .Params.image_title }}</figcaption>
+            </a>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
+{{ else }}
+{{/* Default layout */}}
  <article class="cf ph3 ph5-l pv3 pv4-l f4-5 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
   </article>
+{{ end }}
+
+<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+{{ .Params.final_message }}
+</div>
 
 {{ end }}
