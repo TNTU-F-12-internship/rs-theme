@@ -120,12 +120,16 @@ footer {
   bottom: 0;
 }
 
-.content-image {
+.img-width-contain {
   object-fit: contain;
   width: 100%;
 }
 
-.height-image {
+.img-width-cover {
+
+}
+
+.img-height-cover {
   object-fit: cover;
   height: 100%;
 }

@@ -19,7 +19,8 @@
         {{ else if eq .Params.layout "little-icons" }}
             {{ partial "little-icons.html" . }}
 
-
+        {{ else if eq .Params.layout "img-left-plus-right" }}
+            {{ partial "img-left-plus-right.html" . }}
 
         {{ else }}
         {{/* Default layout */}}

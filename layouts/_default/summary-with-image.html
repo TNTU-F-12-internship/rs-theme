@@ -6,7 +6,7 @@
       {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
       <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3-ns" "pr3-ns" }} mb4 mb0-ns w-100 w-40-ns">
       <a href="{{.RelPermalink}}" class="db grow w-100">
-        <img src="{{ .Params.summary_image }}" class="img content-image" alt="image from {{ .Title }}">
+        <img src="{{ .Params.summary_image }}" class="img img-width-contain" alt="image from {{ .Title }}">
       </a>
       </div>
       {{ else }}

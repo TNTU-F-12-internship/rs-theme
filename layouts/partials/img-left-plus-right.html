@@ -1,0 +1,53 @@
+<article class="center cf pt5 pb4 ph3 ph4-ns mw8">
+    <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+    {{ .Content }}
+    </div>
+</article>
+
+{{ $folder_left := .Params.sections_folder_left }}
+{{ $mySections_left := slice $folder_left }}
+{{ $sections_left := where .Site.RegularPages "Section" "in" $mySections_left }}
+{{ $sections_count_left := len $sections_left }}
+
+{{ if ge $sections_count_left 1 }}
+<div class="pa3 pa4-ns w-100 mw8-5 center">
+    {{ if .Params.section_title_one }}
+    <div class="bb b--black-10 lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="lh-copy f3 mt0 mb4" >
+            {{ .Params.section_title_one }}
+        </h2>
+    </div>
+    {{ end }}
+    <section class="w-100 center">
+        {{ range $sections_left }}
+        <div class="relative w-100">
+            {{ .Render "section-image-left" }}
+        </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}
+
+{{ $folder_right := .Params.sections_folder_right }}
+{{ $mySections_right := slice $folder_right }}
+{{ $sections_right := where .Site.RegularPages "Section" "in" $mySections_right }}
+{{ $sections_count_right := len $sections_right }}
+
+{{ if ge $sections_count_right 1 }}
+<div class="pa3 pa4-ns w-100 mw8-5 center">
+    {{ if .Params.section_title_two }}
+    <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="lh-copy f3" >
+            {{ .Params.section_title_two }}
+        </h2>
+    </div>
+    {{ end }}
+    <section class="w-100 center">
+        {{ range $sections_right }}
+        <div class="relative w-100 mb4">
+            {{ .Render "section-image-right" }}
+        </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}
