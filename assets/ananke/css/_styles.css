@@ -125,6 +125,11 @@ footer {
   width: 100%;
 }
 
+.height-image {
+  object-fit: cover;
+  height: 100%;
+}
+
 .link-active:focus {
   outline: none;
 }
@@ -141,6 +146,10 @@ footer {
 
 .f4-5 {
   font-size: 1.12rem;
+}
+
+.mw8-5 {
+  max-width: 70rem;
 }
 
 p {

@@ -1,0 +1,22 @@
+<article class="center cf pt5 pb4 ph3 ph4-ns mw8">
+    <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+        {{ .Content }}
+    </div>
+</article>
+
+{{ $folder := .Params.sections_folder }}
+{{ $mySections := slice $folder }}
+{{ $sections := where .Site.RegularPages "Section" "in" $mySections }}
+{{ $sections_count := len $sections }}
+
+{{ if ge $sections_count 1 }}
+<div class="pa3 pa4-ns w-100 mw8-5 center">
+    <section class="w-100 center">
+        {{ range $sections }}
+        <div class="relative w-100 mb4">
+            {{ .Render "section-image-right" }}
+        </div>
+        {{ end }}
+    </section>
+</div>
+{{ end }}

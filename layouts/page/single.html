@@ -1,21 +1,41 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
-  <div class="flex-l mt2 mw9 center color-link">
-    <article class="center cf pv5 ph3 ph4-ns mw8">
+<div class="flex-l mt2 center color-link">
+    <div class="center">
 
-      {{ if eq .Params.single_page "privacy"}}
-      <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
-        {{ .Content }}
-      </div>
-      {{ else }}
-      <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
-        {{ .Content }}
-      </div>
-      {{ end }}
+        {{ if eq .Params.layout "privacy"}}
+        <article class="center cf pv5 ph3 ph4-ns mw8">
+            <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
+            {{ .Content }}
+            </div>
+        </article>
 
-    </article>
-  </div>
-<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
-{{ .Params.final_message }}
+        {{ else if eq .Params.layout "img-left" }}
+            {{ partial "img-left.html" . }}
+
+        {{ else if eq .Params.layout "img-right" }}
+            {{ partial "img-right.html" . }}
+
+        {{ else if eq .Params.layout "little-icons" }}
+            {{ partial "little-icons.html" . }}
+
+
+
+        {{ else }}
+        {{/* Default layout */}}
+        <article class="center cf pv5 ph3 ph4-ns mw8">
+        <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+not I here in single
+            {{ .Content }}
+        </div>
+        </article>
+        {{ end }}
+
+    </div>
 </div>
+
+<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+    {{ .Params.final_message }}
+</div>
+
 {{ end }}
