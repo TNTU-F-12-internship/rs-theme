@@ -11,13 +11,13 @@
 {{ $sections_count := len $sections }}
 
 {{ if ge $sections_count 1 }}
-<div class="pb6-l pb5-m w-100 w-60-ns center">
+<div class="pb6-l pb5-m w-100 w-50-ns center">
     <div class="flex flex-wrap justify-center items-center">
         {{/* Range through the section */}}
         {{ range $sections }}
-        <div class="w-50-l w-50-m w-100-ns pa4">
+        <div class="w-50-l w-50-m w-100-ns pa3">
             <a class="no-underline" href="{{ .Params.path }}" >
-                <h2 class="f2 tc" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+                <h2 class="f2 tc mv3" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
                 {{ .Title }}
                 </h2>
             </a>

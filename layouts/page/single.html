@@ -22,6 +22,9 @@
         {{ else if eq .Params.layout "img-left-plus-right" }}
             {{ partial "img-left-plus-right.html" . }}
 
+        {{ else if eq .Params.layout "contacts-with-form" }}
+            {{ partial "contacts-with-form.html" . }}
+
         {{ else }}
         {{/* Default layout */}}
         <article class="center cf pv5 ph3 ph4-ns mw8">
