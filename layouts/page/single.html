@@ -1,9 +1,10 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
 <div class="flex-l mt2 center color-link">
-    <div class="center">
+    <div class="center mb6">
 
         {{ if eq .Params.layout "privacy"}}
+        <button onclick="topFunction()" id="btnBackToTop" ></button>
         <article class="center cf pv5 ph3 ph4-ns mw8">
             <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
             {{ .Content }}
@@ -37,14 +38,14 @@
     </div>
 </div>
 
-<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+<div class="center tc f4 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
     {{ .Params.final_message }}
 </div>
 
 {{ if ne .Params.layout "contacts-with-google-form" }}
 {{ if .Site.Params.footerContactButton }}
 <div class="tc pt4">
-    <a class="f6 link w-20 dim br2 ph3 pv2 mb2 dib white"
+    <a class="f6 link w-20 dim br2 ph3 pv2 dib white"
        style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};" href="{{ .Site.Params.footerContactButtonPath }}">
     {{ .Site.Params.footerContactButton }}
     </a>

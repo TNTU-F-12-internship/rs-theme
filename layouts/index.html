@@ -1,9 +1,9 @@
 {{ define "main" }}
 
 {{ if eq .Params.layout "for-img-section" }}
- <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center mw7 lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
+<div class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center mw7 lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
-  </article>
+</div>
 
 {{ $folder := .Params.sections_folder }}
 {{ $mySections := slice $folder }}
@@ -33,12 +33,12 @@
 
 {{ else }}
 {{/* Default layout */}}
- <article class="cf ph3 ph5-l pv3 pv4-l f4-5 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
+<article class="cf ph3 ph5-l pv3 pv4-l f4-5 tc-l center measure-wide lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
-  </article>
+</article>
 {{ end }}
 
-<div class="center mt2 tc f3 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+<div class="center mt2 tc f4 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
 {{ .Params.final_message }}
 </div>
 

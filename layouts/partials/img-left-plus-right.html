@@ -12,15 +12,15 @@
 {{ if ge $sections_count_left 1 }}
 <div class="pa3 pa4-ns w-100 mw8-5 center">
     {{ if .Params.section_title_one }}
-    <div class="bb b--black-10 lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+    <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
         <h2 class="lh-copy f3 mt0 mb4" >
             {{ .Params.section_title_one }}
         </h2>
     </div>
     {{ end }}
-    <section class="w-100 center">
+    <section class="w-100 center bb b--black-10">
         {{ range $sections_left }}
-        <div class="relative w-100">
+        <div class="relative w-100 bt b--black-10">
             {{ .Render "section-image-left" }}
         </div>
         {{ end }}
@@ -44,7 +44,7 @@
     {{ end }}
     <section class="w-100 center">
         {{ range $sections_right }}
-        <div class="relative w-100 mb4">
+        <div class="relative w-100">
             {{ .Render "section-image-right" }}
         </div>
         {{ end }}

@@ -3,9 +3,8 @@
 {{ $form := where .Site.RegularPages "Section" "in" $mySections }}
 {{ $form_count := len $form }}
 
-
-<article class="mw8">
-    <div class="db pv5 ph3 ph0-l no-underline dark-gray">
+<article class="mw8 nb5">
+    <div class="db pt5 ph0-l no-underline dark-gray">
         <div class="flex flex-column-m pb4-l pb5-m">
             <div class="f4-5 w-100 w-40-ns lh-copy mw-3">
                 {{ .Content }}

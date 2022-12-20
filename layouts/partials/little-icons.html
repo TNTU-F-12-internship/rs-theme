@@ -8,7 +8,7 @@
             {{ end }}
             {{ .Content }}
             {{ if .Params.article_subtitle }}
-                <h4 style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+                <h4 class="pt4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
                     {{ .Params.article_subtitle }}
                 </h4>
             {{ end }}
@@ -22,7 +22,7 @@
 {{ $sections_count := len $sections }}
 
 {{ if ge $sections_count 1 }}
-<div class="pb6-l pb5-m w-100 w-70-ns center">
+<div class="w-100 w-70-ns center">
     <div class="flex flex-wrap justify-center items-center">
         {{/* Range through the section */}}
         {{ range $sections }}
