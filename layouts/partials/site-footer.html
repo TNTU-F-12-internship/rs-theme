@@ -1,19 +1,10 @@
-<!--<footer class="{{ .Site.Params.background_color_class | default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">-->
 <footer class="center">
 
-    {{ if .Site.Params.footerContactButton }}
-    <div class="tc">
-        <a class="f6 link w-20 dim br2 ph3 pv2 mb2 dib white"
-           style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};" href="{{ .Site.Params.footerContactButtonPath }}">
-            {{ .Site.Params.footerContactButton }}
-        </a>
-    </div>
-    {{ end }}
-
+    {{/* Footer line */}}
     <div class="pa3 pa4-ns w-100 w-70-ns center">
-        <!--    <hr class="footer-line">-->
         <div class="bb b--black-10"></div>
     </div>
+
     <div class="tc">
         <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine1 }}</div>
         <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine2 }}</div>

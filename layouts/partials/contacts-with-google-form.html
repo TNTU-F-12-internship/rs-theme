@@ -6,8 +6,8 @@
 
 <article class="mw8">
     <div class="db pv5 ph3 ph0-l no-underline dark-gray">
-        <div class="flex flex-column-m pb6-l pb5-m">
-            <div class="f4-5 w-100 w-40-ns lh-copy mw-3 ">
+        <div class="flex flex-column-m pb4-l pb5-m">
+            <div class="f4-5 w-100 w-40-ns lh-copy mw-3">
                 {{ .Content }}
             </div>
 
@@ -19,11 +19,6 @@
                 {{ range $form }}
                     <div class="">
                         <div>
-<!--                    <label>{{ .Params.label }}-->
-<!--                        {{ if eq .Params.required "required" }}-->
-<!--                        <span class="red"> * </span>-->
-<!--                        {{ end }}-->
-<!--                    </label>-->
                     {{ if eq .Params.type "textarea" }}
                     <textarea class="form-input"  rows="{{ .Params.rows }}" placeholder="{{ .Params.placeholder }}"
                               name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }} ></textarea>
@@ -37,8 +32,9 @@
                     </select>
                     {{ else }}
                     {{/* Default type - input */}}
-                    <input class="form-input"  type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
-                           name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }}>
+                    <input class="form-input {{ .Params.required }}"  type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
+                           name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" pattern="{{ .Params.pattern }}"
+                           {{ .Params.required }}>
                     {{ end }}
                     </div>
                     </div>
