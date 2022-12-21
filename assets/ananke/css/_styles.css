@@ -284,3 +284,9 @@ textarea {
   color: var(--site-color);
   opacity:0.6;
 }
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .f0-m {
+    font-size: 0;
+  }
+}

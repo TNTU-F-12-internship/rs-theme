@@ -3538,7 +3538,7 @@ img {
     background: #fff url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7) repeat 0 0
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .aspect-ratio-ns {
         height: 0;
         position: relative
@@ -5321,7 +5321,7 @@ img {
     }
 }
 
-@media screen and (min-width: 30em) and (max-width: 60em) {
+@media screen and (min-width: 768px) and (max-width: 1200px) {
     .aspect-ratio-m {
         height: 0;
         position: relative

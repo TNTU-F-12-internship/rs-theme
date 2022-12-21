@@ -5,7 +5,7 @@
 
         {{ if eq .Params.layout "privacy"}}
         <button onclick="topFunction()" id="btnBackToTop" ></button>
-        <article class="center cf pv5 ph3 ph4-ns mw8">
+        <article class="center cf pv5 ph3 ph4-l mw8">
             <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
             {{ .Content }}
             </div>
@@ -28,7 +28,7 @@
 
         {{ else }}
         {{/* Default layout */}}
-        <article class="center cf pv5 ph3 ph4-ns mw8">
+        <article class="center cf pv5 ph3 ph4-l mw8">
         <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
             {{ .Content }}
         </div>

@@ -1,4 +1,4 @@
-<article class="center cf pt5 pb4 ph3 ph4-ns mw8">
+<article class="center cf pt5 pb4 ph3 ph4-l mw8">
     <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
     </div>
@@ -10,7 +10,7 @@
 {{ $sections_count_left := len $sections_left }}
 
 {{ if ge $sections_count_left 1 }}
-<div class="pa3 pa4-ns w-100 mw8-5 center">
+<div class="pa3 pa4-l w-100 mw8-5 center">
     {{ if .Params.section_title_one }}
     <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
         <h2 class="lh-copy f3 mt0 mb4" >
@@ -34,7 +34,7 @@
 {{ $sections_count_right := len $sections_right }}
 
 {{ if ge $sections_count_right 1 }}
-<div class="pa3 pa4-ns w-100 mw8-5 center">
+<div class="pa3 pa4-l w-100 mw8-5 center">
     {{ if .Params.section_title_two }}
     <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
         <h2 class="lh-copy f3" >
