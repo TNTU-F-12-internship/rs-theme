@@ -18,6 +18,23 @@
   overflow-wrap: break-word;
 }
 
+.f2-5 {
+  font-size: 1.82rem;
+}
+
+.f4-5 {
+  font-size: 1.12rem;
+}
+
+.mw8-5 {
+  max-width: 70rem;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 #btnBackToTop {
   background-color: var(--site-color);
   border: none;
@@ -108,7 +125,6 @@ hr.footer-line {
   border-bottom-style: solid;
   border-bottom-width: 1px;
   margin-bottom: 2rem;
-  /*height: 0;*/
   margin-inline-start: 20%;
   margin-inline-end: 20%;
 }
@@ -169,19 +185,6 @@ footer {
   margin-top: 2em;
   margin-bottom: 0.5em;
   font-size: 1.25em;
-}
-
-.f4-5 {
-  font-size: 1.12rem;
-}
-
-.mw8-5 {
-  max-width: 70rem;
-}
-
-p {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
 }
 
 .post-content figcaption h4 {
@@ -272,4 +275,12 @@ textarea {
 
 [type="submit"]:active {
   transform: scale(0.99);
+}
+
+.color-link a {
+  color: var(--site-color);
+}
+.color-link a:hover, .color-link a:focus, .color-link a:active{
+  color: var(--site-color);
+  opacity:0.6;
 }
