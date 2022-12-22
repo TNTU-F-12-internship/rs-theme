@@ -1,7 +1,7 @@
-<nav class="pv2 ph3-m ph4-l sticky-header" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <div class="flex-l items-center f5 f4-l fw4 pl4 white">
-    <a href="{{ .Site.Home.RelPermalink }}" >
+<nav class="pv2 ph3-m ph4-l sticky-header main-navigation" id="site-navigation" role="navigation">
+  <div class="flex-l flex-m justify-between items-center center">
+    <div class="flex-l flex-m items-center f5 f4-l fw4 pl4-l white">
+    <a href="{{ .Site.Home.RelPermalink }}">
       {{ with .Site.Params.siteLogo }}
         <img src="{{ relURL . }}" class="w100 mw3-l" id="site-logo" alt="{{ $.Site.Title }}" />
       {{ end }}
@@ -10,15 +10,27 @@
         {{ .Site.Title }}
       </a>
     </div>
-    <div class="flex-l items-center">
+
+
+    <div class="flex-l flex-m items-center">
       {{ if .Site.Menus.main }}
+      <div id="for-menu" class="menu-ul">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+          <span class="site-icon">
+            <svg viewBox="0 0 512 512" aria-hidden="true" width="1em" height="1em">
+              <path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z">
+              </path>
+            </svg>
+          </span>
+          <!--          <span class="mobile-menu">Menu</span>-->
+        </button>
       <ul class="{{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pr0 ml3" "pl0 mr3" }}">
 
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
 
         {{ if .HasChildren }}
-        <li class="dropdown list f5 f4-l fw4 dib pl4 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
+        <li class="dropdown list f5 f4-l fw4 dib pl4-l pl2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
           <a class="hover-white no-underline white-90" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
@@ -26,15 +38,15 @@
           </a>
           <ul class="sub-menu dropdown-content">
             {{ range .Children }}
-              <li class="list f6 f5-l fw4 dib pa2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
+              <li class="list f6 f5-l fw4 db pa2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
                 <a class="hover-black no-underline black-70" href="{{ .URL }}">{{ .Name }}</a>
-            <span>{{ .PageRef }}</span>
+                <span>{{ .PageRef }}</span>
               </li>
             {{ end }}
           </ul>
         </li>
         {{ else }}
-        <li class="list f5 f4-l fw4 dib pl4 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
+        <li class="list f5 f4-l fw4 dib pl4-l pl2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
           <a class="hover-white no-underline white-90" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
@@ -44,9 +56,10 @@
         {{ end }}
         {{ end }}
       </ul>
+      </div>
       {{ end }}
       {{ partial "i18nlist.html" . }}
-<!--      {{ partialCached "social-follow.html" . }}-->
     </div>
+    <!--      {{ partialCached "social-follow.html" . }}-->
   </div>
 </nav>

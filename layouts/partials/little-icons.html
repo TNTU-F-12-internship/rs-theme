@@ -1,14 +1,14 @@
 <div class="flex-l mt2 mw8 center">
-    <article class="center cf pt4 pb4 ph3 ph4-l">
-        <div class="nested-copy-line-height lh-copy f4-5 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+    <article class="center cf pv4 ph4">
+        <div class="nested-copy-line-height lh-copy f4-5-l f5-m {{ $.Param "text_color" | default "dark-gray" }}">
             {{ if .Params.article_title }}
-                <h3 class="tc" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+                <h3 class="tc ph5-m" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
                     {{ .Params.article_title }}
                 </h3>
             {{ end }}
             {{ .Content }}
             {{ if .Params.article_subtitle }}
-                <h4 class="pt4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+                <h4 class="pt4 ma0-m" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
                     {{ .Params.article_subtitle }}
                 </h4>
             {{ end }}
@@ -22,11 +22,11 @@
 {{ $sections_count := len $sections }}
 
 {{ if ge $sections_count 1 }}
-<div class="w-100 w-70-l center">
+<div class="w-100 w-90-m w-70-l center">
     <div class="flex flex-wrap justify-center items-center">
         {{/* Range through the section */}}
         {{ range $sections }}
-        <div class="w-third-l w-50-l w-100 pa3">
+        <div class="w-third-l w-50-m w-100 pa3-l">
             {{ .Content }}
         </div>
         {{ end }}

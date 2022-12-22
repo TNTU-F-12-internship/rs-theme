@@ -1,7 +1,7 @@
 {{ define "main" }}
 
 {{ if eq .Params.layout "for-img-section" }}
-<div class="cf ph3 ph5-l pv3 pv4-l f4 tc center mw7 lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
+<div class="cf ph4 ph5-l pv3 pv4-l f4 tc center mw7 lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
 </div>
 
@@ -11,7 +11,7 @@
 {{ $sections_count := len $sections }}
 
 {{ if ge $sections_count 1 }}
-<div class="pb6-l pb5-m w-100 w-90-ns w-50-l center">
+<div class="pb6-l pb5-m w-100 w-90-m w-50-l center">
     <div class="flex flex-wrap justify-center items-center">
         {{/* Range through the section */}}
         {{ range $sections }}

@@ -1,13 +1,13 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
 <div class="flex-l mt2 center color-link">
-    <div class="center mb6">
+    <div class="center mb6 mb5-m">
 
         {{ if eq .Params.layout "privacy"}}
-        <button onclick="topFunction()" id="btnBackToTop" ></button>
-        <article class="center cf pv5 ph3 ph4-l mw8">
-            <div class="nested-copy-line-height lh-copy f5 nested-links privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
-            {{ .Content }}
+<!--        <button onclick="topFunction()" id="btnBackToTop" ></button>-->
+        <article class="center cf pv5 pv4-m ph5 mw8">
+            <div class="nested-copy-line-height lh-copy f5 f6-m privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
+                {{ .Content }}
             </div>
         </article>
 
@@ -28,10 +28,10 @@
 
         {{ else }}
         {{/* Default layout */}}
-        <article class="center cf pv5 ph3 ph4-l mw8">
-        <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
-            {{ .Content }}
-        </div>
+        <article class="center cf pv5 ph5-m ph4-l ph3 mw8 mw7-m">
+            <div class="nested-copy-line-height lh-copy f4 f5-m ml4-m nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+                {{ .Content }}
+            </div>
         </article>
         {{ end }}
 
@@ -47,7 +47,7 @@
 <div class="tc pt4">
     <a class="f6 link w-20 dim br2 ph3 pv2 dib white"
        style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};" href="{{ .Site.Params.footerContactButtonPath }}">
-    {{ .Site.Params.footerContactButton }}
+        {{ .Site.Params.footerContactButton }}
     </a>
 </div>
 {{ end }}

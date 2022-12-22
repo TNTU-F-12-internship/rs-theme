@@ -5,7 +5,7 @@
     <div class="bg-black-20">
       {{ partial "site-navigation.html" . }}
         {{ if not .Params.omit_header_text }}
-        <div class="tc-l padding-banner-lg ph3 ph4-ns w-70 center">
+        <div class="tc padding-banner-lg ph3 ph4-ns w-70 center">
           <h1 class="f2 f1-l white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
           {{ with .Params.description  }}
             <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
@@ -14,7 +14,7 @@
           {{ end }}
         </div>
         {{ else }}
-        <div class="tc-l padding-banner-sm ph3 ph4-ns w-70 center">
+        <div class="tc padding-banner-sm ph3 ph4-ns w-70 center">
           <h1 class="f2 f1-l white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
         </div>
         {{ end }}

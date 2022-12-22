@@ -3,15 +3,15 @@
 {{ $form := where .Site.RegularPages "Section" "in" $mySections }}
 {{ $form_count := len $form }}
 
-<article class="mw8 nb5">
-    <div class="db pt5 ph0-l no-underline dark-gray">
-        <div class="flex flex-column-m pb4-l pb5-m">
-            <div class="f4-5 w-100 w-40-l lh-copy mw-3">
+<article class="mw8 mw7-m nb5 center">
+    <div class="db pt5 ph0-l ph4 no-underline dark-gray">
+        <div class="flex flex-column-ns pb4-l pb5-m ">
+            <div class="f4-5-l f5 w-100-ns w-40 lh-copy mw-3-l">
                 {{ .Content }}
             </div>
 
             {{ if ge $form_count 1 }}
-            <div class="f5 pl4 w-100 w-60-l center mw-2">
+            <div class="f5 pl4 w-100-ns w-60 center mw-2-l">
                 <script type="text/javascript">let submitted=false;</script>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Params.response_page }}';}"></iframe>
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
@@ -39,7 +39,7 @@
                     </div>
 
                 {{ end }}
-                    <div class="tc f4">
+                    <div class="tc f4-5-l">
                         <button type="submit">{{ .Params.submit_button }}</button>
                     </div>
                 </form>
