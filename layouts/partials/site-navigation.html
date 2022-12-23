@@ -1,36 +1,26 @@
-<nav class="pv2 ph3-m ph4-l sticky-header main-navigation" id="site-navigation" role="navigation">
-  <div class="flex-l flex-m justify-between items-center center">
-    <div class="flex-l flex-m items-center f5 f4-l fw4 pl4-l white">
+<nav class="pv2 ph3 ph4-l sticky-header main-navigation" id="site-navigation" role="navigation">
+  <div class="flex justify-between items-center center">
+    <div class="flex items-center f5 f4-l fw4 pl4-l white">
     <a href="{{ .Site.Home.RelPermalink }}">
       {{ with .Site.Params.siteLogo }}
-        <img src="{{ relURL . }}" class="w100 mw3-l" id="site-logo" alt="{{ $.Site.Title }}" />
+        <img src="{{ relURL . }}" class="w100 mw3-l v-mid" id="site-logo" alt="{{ $.Site.Title }}" />
       {{ end }}
     </a>
-      <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m fw2 pl3 hover-white no-underline white-90 text-bold">
+      <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m f0-ns fw2 pl3 hover-white no-underline white-90 text-bold">
         {{ .Site.Title }}
       </a>
     </div>
 
 
-    <div class="flex-l flex-m items-center">
+    <div class="flex flex-row-reverse-ns items-center" id="menu-desktop">
       {{ if .Site.Menus.main }}
-      <div id="for-menu" class="menu-ul">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-          <span class="site-icon">
-            <svg viewBox="0 0 512 512" aria-hidden="true" width="1em" height="1em">
-              <path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z">
-              </path>
-            </svg>
-          </span>
-          <!--          <span class="mobile-menu">Menu</span>-->
-        </button>
       <ul class="{{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pr0 ml3" "pl0 mr3" }}">
 
         {{ $currentPage := . }}
         {{ range .Site.Menus.main }}
 
         {{ if .HasChildren }}
-        <li class="dropdown list f5 f4-l fw4 dib pl4-l pl2 {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
+        <li class="dropdown list f5 f4-l fw4 dib pl4-l pl2 menu-item-has-children {{ cond (eq $.Site.Language.LanguageDirection " rtl ") "pl3" "pr3" }}">
           <a class="hover-white no-underline white-90" href="{{ .URL }}">
             {{ .Pre }}
             <span>{{ .Name }}</span>
@@ -56,10 +46,70 @@
         {{ end }}
         {{ end }}
       </ul>
-      </div>
       {{ end }}
       {{ partial "i18nlist.html" . }}
     </div>
+
+    {{/* mobile menu */}}
+    <div class="flex flex-row-reverse-ns items-center" id="menu-mobile">
+      {{ if .Site.Menus.main }}
+
+      <div id="for-menu" class="menu-ul">
+        <button class="menu-toggle mr0" aria-controls="primary-menu" aria-expanded="false">
+          <span class="site-icon">
+            <svg class="v-mid open" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+<!--              <path d="M0 96c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24zm0 160c0-13.255 10.745-24 24-24h464c13.255 0 24 10.745 24 24s-10.745 24-24 24H24c-13.255 0-24-10.745-24-24z">-->
+<!--              </path>-->
+            </svg>
+            <svg class="v-mid close" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
+              <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+            </svg>
+          </span>
+          <!--          <span class="mobile-menu">Menu</span>-->
+        </button>
+
+        <ul class="tc">
+          <div class="mh" id="menu-mobile-list">
+            <div class="parent-menu bb b--black-10"></div>
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+
+        {{ if .HasChildren }}
+        <li class="list f5 fw4 dib parent-menu bb b--black-10">
+        <a class="hover-black no-underline pa2 fw6" href="{{ .URL }}" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+          <span>{{ .PageRef }}</span>
+        </a>
+        <ul class="sub-menu menu-item-has-children ">
+          {{ range .Children }}
+          <li class="list f5 fw4 db children-menu">
+          <a class="tc hover-black no-underline black-70 pa2" href="{{ .URL }}">{{ .Name }}</a>
+          <span>{{ .PageRef }}</span>
+          </li>
+          {{ end }}
+        </ul>
+        </li>
+        {{ else }}
+        <li class="list f5 fw4 dib parent-menu bb b--black-10">
+        <a class="hover-black no-underline pa2 fw6" href="{{ .URL }}" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+          <span>{{ .PageRef }}</span>
+        </a>
+        </li>
+        {{ end }}
+        {{ end }}
+          </div>
+        </ul>
+
+      </div>
+
+      {{ end }}
+      {{ partial "i18nlist.html" . }}
+    </div>
+
     <!--      {{ partialCached "social-follow.html" . }}-->
   </div>
 </nav>
