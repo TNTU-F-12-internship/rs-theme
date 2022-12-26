@@ -1,5 +1,5 @@
-<div class="center cf pt5 pa4-m pb4 ph4-l mw8">
-    <div class="nested-copy-line-height lh-copy f4 f5-m {{ $.Param "text_color" | default "dark-gray" }}">
+<div class="center cf pt5 pb4 ph4-l pa4-m pa4-ns mw8">
+    <div class="nested-copy-line-height lh-copy f4-l f5 {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
     </div>
 </div>
@@ -12,7 +12,7 @@
 {{ if ge $sections_count_left 1 }}
 <div class="pv3 ph4 pa4-l w-100 mw8-5 center">
     {{ if .Params.section_title_one }}
-        <h2 class="lh-copy f3 f4-m mt0 mb4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="lh-copy f3-l f4 mt0 mb4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
             {{ .Params.section_title_one }}
         </h2>
     {{ end }}
@@ -34,8 +34,8 @@
 {{ if ge $sections_count_right 1 }}
 <div class="pa3 pa4-l ph4-m w-100 mw8-5 center">
     {{ if .Params.section_title_two }}
-    <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
-        <h2 class="lh-copy f3 f4-m" >
+    <div class="lh-copy f4 ph3-ns" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="lh-copy f3-l f4" >
             {{ .Params.section_title_two }}
         </h2>
     </div>

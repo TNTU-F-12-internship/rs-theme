@@ -1312,11 +1312,11 @@ img {
 }
 
 .link, .link:active, .link:focus, .link:hover, .link:link, .link:visited {
-    transition: color .15s ease-in
+    /*transition: color .15s ease-in*/
 }
 
 .link:focus {
-    outline: 1px dotted currentColor
+    /*outline: 1px dotted currentColor*/
 }
 
 .list {
@@ -3500,15 +3500,16 @@ img {
     display: block
 }
 
-.nested-links a {
-    color: #357edd;
-    transition: color .15s ease-in
-}
+/*.nested-links a {*/
+/*    color: var(--site-color);*/
+/*    transition: color .15s ease-in*/
+/*}*/
 
-.nested-links a:focus, .nested-links a:hover {
-    color: #96ccff;
-    transition: color .15s ease-in
-}
+/*.nested-links a:focus, .nested-links a:hover {*/
+/*    color: var(--site-color);*/
+/*    opacity:0.6;*/
+/*    transition: color .15s ease-in*/
+/*}*/
 
 .debug * {
     outline: 1px solid gold

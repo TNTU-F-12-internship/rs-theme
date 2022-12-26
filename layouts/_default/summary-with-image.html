@@ -4,7 +4,7 @@
     <div class="flex flex-column flex-row-l flex-row-m">
       {{ if .Params.summary_image }}
       {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-      <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }} w-100-ns w-40">
+      <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3 pr0-ns" }} w-100-ns w-40">
       <a href="{{.RelPermalink}}" class="db grow w-100">
         <img src="{{ .Params.summary_image }}" class="img img-width-contain" alt="image from {{ .Title }}">
       </a>
@@ -12,16 +12,16 @@
       {{ else }}
         {{ if $featured_image }}
         {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-        <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }} w-100-ns w-40">
+        <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3 pr0-ns" }} w-100-ns w-40">
           <a href="{{.RelPermalink}}" class="db grow">
             <img src="{{ $featured_image }}" class="img" alt="image from {{ .Title }}">
           </a>
         </div>
         {{ end }}
       {{ end }}
-      <div class="blah w-100-ns {{ if $featured_image }} w-60 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3" "pl3-ns" }}{{ end }}">
-        <h1 class="f3 f4-m fw1 athelas mt0 mb0-m lh-title text-bold" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
-          <a href="{{.RelPermalink}}" class="color-inherit dim link link-active">
+      <div class="blah pt3-ns w-100-ns {{ if $featured_image }} w-60 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3" "pl3-l pl2-ns" }}{{ end }}">
+        <h1 class="f3 f4-m fw1 athelas mt0 mb0-m lh-title text-bold color-link" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+          <a href="{{.RelPermalink}}" class="">
             {{ .Title }}
             </a>
         </h1>

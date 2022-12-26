@@ -1,18 +1,15 @@
 {{ define "header" }}{{ partial "page-header.html" . }}{{ end }}
 {{ define "main" }}
 <div class="flex-l mt2 center color-link">
-    <div class="center mb6 mb5-m">
+    <div class="center mb6-m mb5">
 
         {{ if eq .Params.layout "privacy"}}
 <!--        <button onclick="topFunction()" id="btnBackToTop" ></button>-->
-        <article class="center cf pv5 pv4-m ph5 mw8">
+        <article class="center cf pv5 pv4-m ph5 ph3-ns mw8">
             <div class="nested-copy-line-height lh-copy f5 f6-m privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
                 {{ .Content }}
             </div>
         </article>
-
-        {{ else if eq .Params.layout "img-left" }}
-            {{ partial "img-left.html" . }}
 
         {{ else if eq .Params.layout "img-right" }}
             {{ partial "img-right.html" . }}
@@ -23,13 +20,16 @@
         {{ else if eq .Params.layout "img-left-plus-right" }}
             {{ partial "img-left-plus-right.html" . }}
 
+        {{ else if eq .Params.layout "img-left" }}
+            {{ partial "img-left.html" . }}
+
         {{ else if eq .Params.layout "contacts-with-google-form" }}
             {{ partial "contacts-with-google-form.html" . }}
 
         {{ else }}
         {{/* Default layout */}}
-        <article class="center cf pv5 ph5-m ph4-l ph3 mw8 mw7-m">
-            <div class="nested-copy-line-height lh-copy f4 f5-m ml4-m nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+        <article class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+            <div class="nested-copy-line-height lh-copy f4-l f5 ml4-m nested-links {{ $.Param "text_color" | default "dark-gray" }}">
                 {{ .Content }}
             </div>
         </article>
@@ -38,14 +38,14 @@
     </div>
 </div>
 
-<div class="center tc f4 fw4 lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+<div class="center tc f4 f5-ns fw4 ph5-ns lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
     {{ .Params.final_message }}
 </div>
 
 {{ if ne .Params.layout "contacts-with-google-form" }}
 {{ if .Site.Params.footerContactButton }}
 <div class="tc pt4">
-    <a class="f6 link w-20 dim br2 ph3 pv2 dib white"
+    <a class="f6 link w-20 w-30-m w-50-ns dim br2 ph3 pv2 dib white"
        style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};" href="{{ .Site.Params.footerContactButtonPath }}">
         {{ .Site.Params.footerContactButton }}
     </a>

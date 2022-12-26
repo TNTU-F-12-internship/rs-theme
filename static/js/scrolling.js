@@ -10,11 +10,12 @@ window.onscroll = function(){
     let top = window.scrollY;
     let header = document.getElementsByTagName('nav');
     // console.log(`top ${top}`)
-    if(top > 300){
-        // console.log(`else if`)
-        btnBackToTop.style.display = "block";
-    } else if(top > 100){
+    if(top > 900){
         // console.log(`if`)
+        btnBackToTop.style.display = "block";
+        header[0].classList.add('image-header');
+    } else if(top > 100){
+        // console.log(`else if`)
         header[0].classList.add('image-header');
     } else {
         // console.log(`else`)
@@ -27,8 +28,6 @@ window.onscroll = function(){
     // console.log(`innerHeight: ${innerHeight}`)
 
     if (window.innerHeight > (footStartPos + btnMarginBottom)) {
-        // console.log(`window.innerHeight - footStartPos: ${window.innerHeight - footStartPos}`)
-        // console.log(`style.bottom: ${(window.innerHeight - footStartPos) + btnMarginBottom}px`)
         btnBackToTop.style.bottom = `${(window.innerHeight - footStartPos)}px`;
     } else {
         btnBackToTop.style.bottom = '';

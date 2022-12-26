@@ -11,7 +11,7 @@
             </div>
 
             {{ if ge $form_count 1 }}
-            <div class="f5 pl4 w-100-ns w-60 center mw-2-l">
+            <div class="f5 pl4 pl0-ns pv5-ns w-100-ns w-60 center mw-2-l">
                 <script type="text/javascript">let submitted=false;</script>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Params.response_page }}';}"></iframe>
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
@@ -23,7 +23,7 @@
                               name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }} ></textarea>
                     {{ else if eq .Params.type "select" }}
                     <select class="form-input" name="{{ .Params.name }}" {{ .Params.required }}>
-                        <option class="" value="">{{ .Params.placeholder }}</option>
+                        <option class="placeholder" value="">{{ .Params.placeholder }}</option>
                         {{ $options_value := .Params.options_value }}
                         {{ range $options_value }}
                             <option value="{{ . }}">{{ . }}</option>
