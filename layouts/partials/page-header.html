@@ -2,7 +2,7 @@
 {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
   <header class="cover bg-center" style="background-image: url('{{ $featured_image }}');">
-    <div class="bg-black-20">
+    <div class="bg-black-30">
       {{ partial "site-navigation.html" . }}
         {{ if not .Params.omit_header_text }}
         <div class="tc padding-banner-lg ph3 ph4-ns w-70 w-100-ns center">

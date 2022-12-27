@@ -225,8 +225,11 @@ input {
   color: #333 !important;
 }
 
+option:first-of-type {
+  color: #aaa;
+}
+
 option:not(:first-of-type) {
-  color: #333;
   font-size: 1rem;
 }
 
@@ -234,7 +237,7 @@ input::placeholder,
 textarea::placeholder,
 select,
 .placeholder {
-  color:#aaa;
+  /*color:#aaa;*/
   font-size: 0.9rem;
 }
 
@@ -492,8 +495,11 @@ textarea {
 
   }
 
-  .link:active, .link:focus, .link:hover, .link:visited {
-    background-color: white !important;
+  input::placeholder,
+  textarea::placeholder,
+  select,
+  .placeholder {
+    /*color:#aaa;*/
+    font-size: 0.80rem;
   }
-
 }

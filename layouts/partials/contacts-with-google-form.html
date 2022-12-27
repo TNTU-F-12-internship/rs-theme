@@ -23,16 +23,16 @@
                               name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }} ></textarea>
                     {{ else if eq .Params.type "select" }}
                     <select class="form-input" name="{{ .Params.name }}" {{ .Params.required }}>
-                        <option class="placeholder" value="">{{ .Params.placeholder }}</option>
+                        <option class="" value="">{{ .Params.placeholder }}</option>
                         {{ $options_value := .Params.options_value }}
                         {{ range $options_value }}
-                            <option value="{{ . }}">{{ . }}</option>
+                            <option class="" value="{{ . }}">{{ . }}</option>
                         {{ end }}
                     </select>
                     {{ else }}
                     {{/* Default type - input */}}
                     <input class="form-input {{ .Params.required }}"  type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
-                           name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" pattern="{{ .Params.pattern }}"
+                           name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ if .Params.pattern }} pattern="{{ .Params.pattern }}" {{ end }}
                            {{ .Params.required }}>
                     {{ end }}
                     </div>
