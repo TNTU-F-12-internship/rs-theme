@@ -1,17 +1,17 @@
-<footer class="center">
+<footer class="center" id="footer">
 
     {{/* Footer line */}}
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
+    <div class="pa4 ph3-ns w-70 w-80-ns center">
         <div class="bb b--black-10"></div>
     </div>
 
     <div class="tc">
-        <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine1 }}</div>
-        <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine2 }}</div>
-        <div class="f5 fw4 no-underline black-70 pad-bot-5 ph3">{{ .Site.Params.customFooterLine3 }}</div>
+        <div class="f5 f6-ns fw4 no-underline black-70 pb2 ph3">{{ .Site.Params.customFooterLine1 }}</div>
+        <div class="f5 f6-ns fw4 no-underline black-70 pb2 ph3">{{ .Site.Params.customFooterLine2 }}</div>
+        <div class="f5 f6-ns fw4 no-underline black-70 pb2 ph3">{{ .Site.Params.customFooterLine3 }}</div>
     </div>
     <div class="flex justify-between">
-        <div class="center f6 fw4 no-underline black-70 dn dib-ns pv4 ph3">
+        <div class="center tc f6 f7-ns fw4 no-underline black-70 dn dib pv4 ph3 ph4-ns">
             <a class="hover-black black-70" href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">{{
                 .Site.Params.footerPrivacy }}</a>
             Copyright &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }}, {{ now.Format "2006"}}

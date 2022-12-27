@@ -1,8 +1,8 @@
-<article class="center cf pt5 pb4 ph3 ph4-ns mw8">
-    <div class="nested-copy-line-height lh-copy f4 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
+<div class="center cf pt5 pb4 ph4-l pa4-m pa4-ns mw8">
+    <div class="nested-copy-line-height lh-copy f4-l f5 {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
     </div>
-</article>
+</div>
 
 {{ $folder_left := .Params.sections_folder_left }}
 {{ $mySections_left := slice $folder_left }}
@@ -10,13 +10,11 @@
 {{ $sections_count_left := len $sections_left }}
 
 {{ if ge $sections_count_left 1 }}
-<div class="pa3 pa4-ns w-100 mw8-5 center">
+<div class="pv3 ph4 pa4-l w-100 mw8-5 center">
     {{ if .Params.section_title_one }}
-    <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
-        <h2 class="lh-copy f3 mt0 mb4" >
+        <h2 class="lh-copy f3-l f4 mt0 mb4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
             {{ .Params.section_title_one }}
         </h2>
-    </div>
     {{ end }}
     <section class="w-100 center bb b--black-10">
         {{ range $sections_left }}
@@ -34,10 +32,10 @@
 {{ $sections_count_right := len $sections_right }}
 
 {{ if ge $sections_count_right 1 }}
-<div class="pa3 pa4-ns w-100 mw8-5 center">
+<div class="pa3 pa4-l ph4-m w-100 mw8-5 center">
     {{ if .Params.section_title_two }}
-    <div class="lh-copy f4" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
-        <h2 class="lh-copy f3" >
+    <div class="lh-copy f4 ph3-ns" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="lh-copy f3-l f4" >
             {{ .Params.section_title_two }}
         </h2>
     </div>
