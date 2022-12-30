@@ -15,7 +15,7 @@
 
 {{- $set := delimit $srcset "," -}}
 
-
+<figure>
     <img
             srcset="{{ $set }}"
             sizes="(max-width: 480px) 480px, 100vw"
@@ -24,3 +24,4 @@
             width="100%"
             height="auto"/>
     <figcaption>{{ $alt }}</figcaption>
+</figure>
