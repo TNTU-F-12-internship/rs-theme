@@ -1,0 +1,28 @@
+{{- $res := resources.Get (.Params.section_image) -}}
+
+{{- $ws := slice 480 768 1366 1920 -}}
+{{- $srcset := slice -}}
+{{- range $ws -}}
+{{/* to avoid creating an image that is larger than the source */}}
+{{- if (le . $res.Width) -}}
+{{- $w := printf "%dx" . -}}
+{{- $url := ($res.Resize $w).RelPermalink | safeURL -}}
+{{- $fmt := printf "%s %dw" $url . -}}
+{{- $srcset = $srcset | append $fmt -}}
+{{- end -}}
+{{- end -}}
+
+{{- $set := delimit $srcset "," -}}
+
+<figure>
+    <img
+        srcset="{{ $set }}"
+        sizes="(max-width: 480px) 480px, 100vw"
+        src="{{ $res.RelPermalink }}"
+        alt="{{ .Params.alt }}"
+        width="100%"
+        height="auto"
+        class="img"
+    />
+    <figcaption>{{ .Params.image_title }}</figcaption>
+</figure>

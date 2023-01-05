@@ -12,8 +12,7 @@
       {{ if .Params.section_image }}
         {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
         <div class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3-l" "pl3-l" }} w-100-ns w-60-l w-50-m">
-          <img src="{{ .Params.section_image }}" class="img" alt="{{ .Params.alt }}">
-          <figcaption>{{ .Params.image_title }}</figcaption>
+          {{ partial "image-srcset.html" . }}
         </div>
       {{ end }}
     </div>
