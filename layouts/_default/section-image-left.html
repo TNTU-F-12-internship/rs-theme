@@ -5,8 +5,9 @@
       {{ if .Params.section_image }}
         {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
         <div class=" {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3 pr0-ns" }} w-100-ns w-40-l w-50-m">
-          <img src="{{ .Params.section_image }}" class="img {{ .Params.img_render_class }} " alt="{{ .Params.alt }}">
-          <figcaption>{{ .Params.image_title }}</figcaption>
+<!--          <img src="{{ .Params.section_image }}" class="img {{ .Params.img_render_class }} " alt="{{ .Params.alt }}">-->
+<!--          <figcaption>{{ .Params.image_title }}</figcaption>-->
+          {{ partial "image-srcset.html" . }}
         </div>
       {{ end }}
       <div class="blah w-100-ns w-60-l w-50-m {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3-l" "pl3-l" }}">

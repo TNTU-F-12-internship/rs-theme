@@ -22,8 +22,7 @@
                 </h2>
             </a>
             <a href="{{ .Params.path }}" >
-                <img src="{{ .Params.section_image }}" class="img {{ .Params.img_render_class }}" alt="{{ .Params.alt }}">
-                <figcaption>{{ .Params.image_title }}</figcaption>
+                {{ partial "image-srcset.html" . }}
             </a>
         </div>
         {{ end }}
