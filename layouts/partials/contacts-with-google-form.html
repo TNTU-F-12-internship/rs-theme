@@ -17,7 +17,7 @@
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
 
                 {{ range $form }}
-                        <div>
+                    <div>
                     {{ if eq .Params.type "textarea" }}
                     <textarea class="form-input"  rows="{{ .Params.rows }}" placeholder="{{ .Params.placeholder }}"
                               name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }} ></textarea>
