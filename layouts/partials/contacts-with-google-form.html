@@ -15,8 +15,8 @@
                 <script type="text/javascript">let submitted=false;</script>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Params.response_page }}';}"></iframe>
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
+
                 {{ range $form }}
-                    <div class="">
                         <div>
                     {{ if eq .Params.type "textarea" }}
                     <textarea class="form-input"  rows="{{ .Params.rows }}" placeholder="{{ .Params.placeholder }}"
@@ -33,9 +33,8 @@
                     {{/* Default type - input */}}
                     <input class="form-input {{ .Params.required }}"  type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
                            name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ if .Params.pattern }} pattern="{{ .Params.pattern }}" {{ end }}
-                           {{ .Params.required }}>
+                           {{ if .Params.hidden }} style="display:none" {{ end }} {{ .Params.required }}>
                     {{ end }}
-                    </div>
                     </div>
 
                 {{ end }}
