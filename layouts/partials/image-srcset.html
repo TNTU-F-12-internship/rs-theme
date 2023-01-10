@@ -20,8 +20,10 @@
 {{/* to avoid empty srcset when image is too small */}}
 {{- $src_count := len $srcset -}}
 {{- if eq $src_count 0 -}}
+    {{- $w := $res.Width -}}
     {{- $url := $res.RelPermalink | safeURL -}}
-    {{- $srcset = $srcset | append $url -}}
+    {{- $fmt := printf "%s %dw" $url $w -}}
+    {{- $srcset = $srcset | append $fmt -}}
 {{- end -}}
 
 {{- $set := delimit $srcset "," -}}
