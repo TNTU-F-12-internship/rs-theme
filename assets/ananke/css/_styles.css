@@ -76,7 +76,7 @@ p {
   z-index: 96;
 }
 
-#language_icon {
+.language_icon {
   text-transform: uppercase;
 }
 
@@ -380,7 +380,7 @@ textarea {
   .main-navigation .menu-ul ul {
     display: none;
     list-style: none;
-    margin: 0;
+    /*margin: 0;*/
     padding-inline-start: 0;
   }
 
