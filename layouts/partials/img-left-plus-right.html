@@ -16,13 +16,13 @@
             {{ .Params.section_title_one }}
         </h2>
     {{ end }}
-    <section class="w-100 center bb b--black-10">
+    <div class="w-100 center bb b--black-10">
         {{ range $sections_left }}
         <div class="relative w-100 bt b--black-10">
             {{ .Render "section-image-left" }}
         </div>
         {{ end }}
-    </section>
+    </div>
 </div>
 {{ end }}
 
@@ -40,12 +40,12 @@
         </h2>
     </div>
     {{ end }}
-    <section class="w-100 center">
+    <div class="w-100 center">
         {{ range $sections_right }}
         <div class="relative w-100">
             {{ .Render "section-image-right" }}
         </div>
         {{ end }}
-    </section>
+    </div>
 </div>
 {{ end }}

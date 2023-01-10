@@ -12,7 +12,7 @@
 
             {{ if ge $form_count 1 }}
             <div class="f5 pl4 pl0-ns pv5-ns w-100-ns w-60 center mw-2-l">
-                <script type="text/javascript">let submitted=false;</script>
+                <script>let submitted=false;</script>
                 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {window.location='{{ .Params.response_page }}';}"></iframe>
                 <form action="{{ .Params.action }}" method="post" target="hidden_iframe" onsubmit="submitted=true">
 
@@ -20,9 +20,10 @@
                     <div>
                     {{ if eq .Params.type "textarea" }}
                     <textarea class="form-input"  rows="{{ .Params.rows }}" placeholder="{{ .Params.placeholder }}"
-                              name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ .Params.required }} ></textarea>
+                              name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}"
+                              {{ if .Params.required }} required {{ end }}></textarea>
                     {{ else if eq .Params.type "select" }}
-                    <select class="form-input" name="{{ .Params.name }}" {{ .Params.required }}>
+                    <select class="form-input" name="{{ .Params.name }}" {{ if .Params.required }} required {{ end }}>
                         <option class="" value="">{{ .Params.placeholder }}</option>
                         {{ $options_value := .Params.options_value }}
                         {{ range $options_value }}
@@ -33,7 +34,7 @@
                     {{/* Default type - input */}}
                     <input class="form-input {{ .Params.required }}"  type="{{ .Params.input_type }}" placeholder="{{ .Params.placeholder }}"
                            name="{{ .Params.name }}" maxlength="{{ .Params.maxlength }}" {{ if .Params.pattern }} pattern="{{ .Params.pattern }}" {{ end }}
-                           {{ if .Params.hidden }} style="display:none" {{ end }} {{ .Params.required }}>
+                           {{ if .Params.hidden }} style="display:none" {{ end }} {{ if .Params.required }} required {{ end }}>
                     {{ end }}
                     </div>
 

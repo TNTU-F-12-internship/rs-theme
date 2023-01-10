@@ -8,26 +8,33 @@
 {{- $ws := slice 480 768 1366 1920 -}}
 {{- $srcset := slice -}}
 {{- range $ws -}}
-{{/* to avoid creating an image that is larger than the source */}}
-{{- if (le . $res.Width) -}}
-{{- $w := printf "%dx" . -}}
-{{- $url := ($res.Resize $w).RelPermalink | safeURL -}}
-{{- $fmt := printf "%s %dw" $url . -}}
-{{- $srcset = $srcset | append $fmt -}}
+    {{/* to avoid creating an image that is larger than the source */}}
+    {{- if (le . $res.Width) -}}
+        {{- $w := printf "%dx" . -}}
+        {{- $url := ($res.Resize $w).RelPermalink | safeURL -}}
+        {{- $fmt := printf "%s %dw" $url . -}}
+        {{- $srcset = $srcset | append $fmt -}}
+    {{- end -}}
 {{- end -}}
+
+{{/* to avoid empty srcset when image is too small */}}
+{{- $src_count := len $srcset -}}
+{{- if eq $src_count 0 -}}
+    {{- $url := $res.RelPermalink | safeURL -}}
+    {{- $srcset = $srcset | append $url -}}
 {{- end -}}
 
 {{- $set := delimit $srcset "," -}}
 
-<figure>
+<figure class="{{ .Params.figure_render_class }}">
     <img
         srcset="{{ $set }}"
         sizes="(max-width: 480px) 480px, 100vw"
         src="{{ $res.RelPermalink }}"
         alt="{{ .Params.alt }}"
         class="img {{ .Params.img_render_class }}"
-    />
-    {{ if .Params.image_title }}
+    >
+    {{- if .Params.image_title -}}
     <figcaption>{{ .Params.image_title }}</figcaption>
-    {{ end }}
+    {{- end -}}
 </figure>

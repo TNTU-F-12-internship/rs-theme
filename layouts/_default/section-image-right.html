@@ -1,10 +1,10 @@
-<article class="">
+<section>
   <div class="db pv4 pv3-ns ph3 ph0-l no-underline dark-gray">
     <div class="flex flex-column-ns ">
       <div class="w-100-ns w-40-l w-50-m {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3 pr0-ns pb4-ns" }}">
-        <h1 class="f3-l f4 fw4 lh-title tl tc-ns" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+        <h3 class="f3-l f4 fw4 lh-title tl tc-ns" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
             {{ .Title }}
-        </h1>
+        </h3>
         <div class="f4-5-l f5 lh-copy nested-copy-line-height nested-links">
           {{ .Content }}
         </div>
@@ -17,4 +17,4 @@
       {{ end }}
     </div>
   </div>
-</article>
+</section>

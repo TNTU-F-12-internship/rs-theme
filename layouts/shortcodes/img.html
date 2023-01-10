@@ -13,6 +13,13 @@
     {{- end -}}
 {{- end -}}
 
+{{/* to avoid empty srcset when image is too small */}}
+{{- $src_count := len $srcset -}}
+{{- if eq $src_count 0 -}}
+    {{- $url := $res.RelPermalink | safeURL -}}
+    {{- $srcset = $srcset | append $url -}}
+{{- end -}}
+
 {{- $set := delimit $srcset "," -}}
 
 <figure>
@@ -21,8 +28,8 @@
         sizes="(max-width: 480px) 480px, 100vw"
         src="{{ $res.RelPermalink }}"
         alt="{{ $alt }}"
-        width="100%"
-        height="auto"
-    />
+    >
+    {{- if .Params.alt -}}
     <figcaption>{{ $alt }}</figcaption>
+    {{- end -}}
 </figure>

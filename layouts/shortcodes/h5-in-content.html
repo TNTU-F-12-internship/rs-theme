@@ -1,0 +1,9 @@
+
+{{ $text := .Get "text" }}
+{{ $color := .Get "color" }}
+
+{{ if not $color }}
+    {{ $color = "#333" }}
+{{ end }}
+
+<h5 style="color:{{ $color }};" >{{ $text }}</h5>

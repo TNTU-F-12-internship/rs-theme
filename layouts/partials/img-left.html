@@ -1,4 +1,4 @@
-<article class="center cf ph4 mw8-5">
+<div class="center cf ph4 mw8-5">
     <div class="pv5 pv4-m lh-copy f4-5-l f5 nested-links {{ $.Param "text_color" | default "dark-gray" }}">
     {{ .Content }}
     </div>
@@ -10,13 +10,13 @@
 
 {{ if ge $sections_count 1 }}
 <div class="w-100 mw8-5 center">
-    <section class="w-100 center">
+    <div class="w-100 center">
         {{ range $sections }}
         <div class="relative w-100 bt b--black-10">
             {{ .Render "section-image-left" }}
         </div>
         {{ end }}
-    </section>
+    </div>
 </div>
 {{ end }}
-</article>
+</div>

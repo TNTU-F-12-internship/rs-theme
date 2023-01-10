@@ -20,11 +20,11 @@
         {{ end }}
       {{ end }}
       <div class="blah pt3-ns w-100-ns {{ if $featured_image }} w-60 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr3" "pl3-l pl2-ns" }}{{ end }}">
-        <h1 class="f3 f4-m fw1 athelas mt0 mb0-m lh-title text-bold color-link" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
+        <h2 class="tc f3 f4-m fw1 athelas mt0 mb0-m lh-title text-bold color-link" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};" >
           <a href="{{.RelPermalink}}" class="">
             {{ .Title }}
             </a>
-        </h1>
+        </h2>
         {{ if not .Date.IsZero }}
           <time class="f6 mv3 dib tracked" {{ printf `datetime="%s"` (.Date.Format "2006-01-02T15:04:05Z07:00") | safeHTMLAttr }}>
             {{ .Params.date_prefix }}  {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}

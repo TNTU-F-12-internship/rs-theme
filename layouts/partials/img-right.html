@@ -1,4 +1,4 @@
-<article class="center cf pt5 ph3 ph5-l mbn4-ns mw8-5">
+<div class="center cf pt5 ph3 ph5-l mbn4-ns mw8-5">
     <div class="f4 f4-5-m f4-5-ns pb5 ph3 tc lh-copy {{ $.Param "text_color" | default "dark-gray" }}">
         {{ .Content }}
     </div>
@@ -10,14 +10,12 @@
 
 {{ if ge $sections_count 1 }}
 <div class="w-100 mw8-5 center">
-    <section class="w-100 center">
-        {{ range $sections }}
+    {{ range $sections }}
         <div class="relative w-100 mb4">
             {{ .Render "section-image-right" }}
         </div>
-        {{ end }}
-    </section>
+    {{ end }}
 </div>
 {{ end }}
 
-</article>
+</div>

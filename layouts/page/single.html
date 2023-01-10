@@ -5,11 +5,11 @@
 
         {{ if eq .Params.layout "privacy"}}
 <!--        <button onclick="topFunction()" id="btnBackToTop" ></button>-->
-        <article class="center cf pv5 pv4-m ph5 ph3-ns mw8">
+        <div class="center cf pv5 pv4-m ph5 ph3-ns mw8">
             <div class="nested-copy-line-height lh-copy f5 f6-m privacy-page {{ $.Param "text_color" | default "dark-gray" }}">
                 {{ .Content }}
             </div>
-        </article>
+        </div>
 
         {{ else if eq .Params.layout "img-right" }}
             {{ partial "img-right.html" . }}
@@ -28,11 +28,11 @@
 
         {{ else }}
         {{/* Default layout */}}
-        <article class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+        <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">
             <div class="nested-copy-line-height lh-copy f4-l f5 ml4-m nested-links {{ $.Param "text_color" | default "dark-gray" }}">
                 {{ .Content }}
             </div>
-        </article>
+        </div>
         {{ end }}
 
     </div>
