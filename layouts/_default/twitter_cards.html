@@ -19,7 +19,7 @@
 {{- end }}
 {{- if $.Params.summary_image -}}
 {{- with $.Params.summary_image -}}
-<meta property="twitter:image" content="{{ . | absURL }}" >
+<meta name="twitter:image" content="{{ . | absURL }}" >
 {{- end -}}
 {{- else -}}
 {{- with $.Site.Params.favicon }}
