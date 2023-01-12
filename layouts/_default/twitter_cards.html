@@ -23,7 +23,7 @@
 {{- end -}}
 {{- else -}}
 {{- with $.Site.Params.favicon }}
-<meta property="twitter:image" content="{{ . | absURL }}" >
+<meta name="twitter:image" content="{{ . | absURL }}" >
 {{ end -}}
 {{- end -}}
 <meta name="twitter:title" content="{{ .Title }}" >
