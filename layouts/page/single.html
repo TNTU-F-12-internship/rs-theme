@@ -26,6 +26,13 @@
         {{ else if eq .Params.layout "contacts-with-google-form" }}
             {{ partial "contacts-with-google-form.html" . }}
 
+        {{ else if eq .Params.layout "content-center" }}
+        <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">
+            <div class="tc nested-copy-line-height lh-copy f4-l f5 {{ $.Param "text_color" | default "dark-gray" }}">
+                {{ .Content }}
+            </div>
+        </div>
+
         {{ else }}
         {{/* Default layout */}}
         <div class="center cf pv5 ph5-m ph4 mw8 mw7-m">

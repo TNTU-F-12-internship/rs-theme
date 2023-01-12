@@ -1,7 +1,7 @@
 {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
 {{ if $featured_image }}
   {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  <header class="cover bg-center" style="background-image: url('{{ $featured_image }}');">
+  <header class="cover bg-right" style="background-image: url('{{ $featured_image }}');">
     <div class="bg-black-30">
       {{ partial "site-navigation.html" . }}
         {{ if not .Params.omit_header_text }}
