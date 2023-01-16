@@ -1,6 +1,10 @@
 <meta name="twitter:card" content="summary" >
 
-{{- if $.Params.sharing_image -}}
+{{- if $.Params.twitter_sharing_image -}}
+    {{- with $.Params.twitter_sharing_image -}}
+    <meta name="twitter:image" content="{{ . | absURL }}" >
+    {{- end -}}
+{{- else if $.Params.sharing_image -}}
     {{- with $.Params.sharing_image -}}
     <meta name="twitter:image" content="{{ . | absURL }}" >
     {{- end -}}
