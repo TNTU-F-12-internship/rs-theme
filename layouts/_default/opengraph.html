@@ -1,7 +1,7 @@
-<meta name="title" property="og:title" content="{{ .Title }}" >
-<meta name="description" property="og:description" content="{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" >
+<meta property="og:title" content="{{ .Title }}" >
+<meta property="og:description" content="{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" >
 <meta name="type" property="og:type" content="{{ if eq .Params.type "article" }}article{{ else }}website{{ end }}" >
-<meta name="url" property="og:url" content="{{ .Permalink }}" >
+<meta property="og:url" content="{{ .Permalink }}" >
 
 {{- if $.Params.sharing_image -}}
     {{- with $.Params.sharing_image -}}

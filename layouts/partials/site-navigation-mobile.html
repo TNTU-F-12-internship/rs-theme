@@ -1,0 +1,74 @@
+<nav class="topnav">
+
+  <div class="flex justify-between items-center center pv2 ph3 bg-white">
+    <div class="flex f5 f4-l fw4 pl4-l dark-gray">
+      <a href="{{ .Site.Home.RelPermalink }}">
+        {{ if .Site.Params.siteLogoMobile }}
+          {{ with .Site.Params.siteLogoMobile }}
+          <img src="{{ relURL . }}" class="w100 mw3-l v-mid site-logo" alt="{{ $.Site.Title }}" >
+          {{ end }}
+        {{ else }}
+          {{ with .Site.Params.siteLogo }}
+          <img src="{{ relURL . }}" class="w100 mw3-l v-mid site-logo" alt="{{ $.Site.Title }}" >
+          {{ end }}
+        {{ end }}
+      </a>
+      <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m f0-ns fw2 pl3 hover-white no-underline white-90 text-bold">
+        {{ .Site.Title }}
+      </a>
+    </div>
+    <div class="flex items-center">
+      {{ partial "i18nlist.html" . }}
+      <button class="mr2-ns v-mid">
+        <a href="javascript:void(0);" class="" id="site-icon-open" onclick="toggleFunction()">
+          <svg class="v-mid" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+        </a>
+        <a href="javascript:void(0);" class="" id="site-icon-close" onclick="toggleFunction()">
+          <svg class="v-mid" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </a>
+      </button>
+    </div>
+  </div>
+
+  {{ if .Site.Menus.main }}
+  <div id="myLinks" class="tc bg-white">
+    <ul id="menu-mobile-list">
+      {{/* line before menu list */}}
+      <li class="list f5 fw4 parent-menu-line bb b--black-10">
+      {{ $currentPage := . }}
+      {{ range .Site.Menus.main }}
+      {{ if .HasChildren }}
+        <li class="list f5 fw4 parent-menu-line bb b--black-10">
+          <a class="hover-black no-underline pa2 fw6" href="{{ .URL }}" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+          <span>{{ .PageRef }}</span>
+          </a>
+          <ul class="sub-menu">
+            {{ range .Children }}
+            <li class="list f5 fw4 db children-menu">
+              <a class="tc hover-black no-underline black-70 pa2" href="{{ .URL }}">{{ .Name }}</a>
+              <span>{{ .PageRef }}</span>
+            </li>
+            {{ end }}
+          </ul>
+        </li>
+      {{ else }}
+        <li class="list f5 fw4 parent-menu-line bb b--black-10">
+          <a class="hover-black no-underline pa2 fw6" href="{{ .URL }}" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
+          {{ .Pre }}
+          <span>{{ .Name }}</span>
+          <span>{{ .PageRef }}</span>
+          </a>
+        </li>
+      {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+  {{ end }}
+
+</nav>
