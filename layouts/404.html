@@ -1,20 +1,73 @@
 {{ define "header" }}
-{{ if .Site.Params.header_image }}
-<header class="cover bg-center" style="background-image: url('{{ .Site.Params.header_image }}');">
-    <div class="bg-black-20">
+{{ if .Site.Params.header_background_image }}
+<div id="menu-desktop">
+    <header class="cover bg-right" style="background-image: url('{{ .Site.Params.header_background_image }}');">
+        <div class="bg-black-20">
+            {{ partial "site-navigation.html" . }}
+            <div class="tc p-banner-sm p-banner-sm-ns ph3 ph4-l w-80 center">
+                <h1 class="f2 f1-l white-90 lh-title">404</h1>
+            </div>
+        </div>
+    </header>
+    {{ else }}
+    <header>
+        <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
         {{ partial "site-navigation.html" . }}
-        <div class="tc padding-banner-sm ph3 ph4-l w-80 center">
-            <h1 class="f2 f1-l white-90 lh-title">404</h1>
+        </div>
+    </header>
+{{ end }}
+</div>
+
+<div id="menu-mobile">
+    {{ partial "site-navigation-mobile.html" .}}
+
+    <div class="sticky-header" id="small-menu">
+        <div class="flex justify-between items-center center pv2 ph3 bg-white shadow-4">
+            <div class="flex f5 f4-l fw4 pl4-l white">
+                <a href="{{ .Site.Home.RelPermalink }}">
+                    {{ if .Site.Params.siteLogoMobile }}
+                    {{ with .Site.Params.siteLogoMobile }}
+                    <img src="{{ relURL . }}" class="w100 mw3-l v-mid site-logo" alt="{{ $.Site.Title }}" >
+                    {{ end }}
+                    {{ else }}
+                    {{ with .Site.Params.siteLogo }}
+                    <img src="{{ relURL . }}" class="w100 mw3-l v-mid site-logo" alt="{{ $.Site.Title }}" >
+                    {{ end }}
+                    {{ end }}
+                </a>
+                <a href="{{ .Site.Home.RelPermalink }}" class="f3-l f0-m f0-ns fw2 pl3 hover-white no-underline white-90 text-bold">
+                    {{ .Site.Title }}
+                </a>
+            </div>
+            <div class="flex items-center">
+                {{ partial "i18nlist.html" . }}
+                <button class="mr2-ns v-mid" onclick="topFunction();toggleTopFunction()" >
+                    <a>
+                        <svg class="v-mid" viewBox="0 0 16 16" aria-hidden="true" width="2em" height="2em">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </a>
+                </button>
+            </div>
         </div>
     </div>
-</header>
-{{ else }}
-<header>
-    <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
-    {{ partial "site-navigation.html" . }}
-    </div>
-</header>
+
+    {{ if .Site.Params.header_background_image }}
+    <header class="cover bg-right" style="background-image: url('{{ .Site.Params.header_background_image }}');">
+        <div class="bg-black-20">
+            <div class="tc p-banner-sm p-banner-sm-ns ph3 ph4-l w-80 center">
+                <h1 class="f2 f1-l white-90 lh-title">404</h1>
+            </div>
+        </div>
+    </header>
+    {{ else }}
+    <header>
+        <div class="{{ .Site.Params.background_color_class | default "bg-black" }}">
+        {{ partial "site-navigation.html" . }}
+        </div>
+    </header>
 {{ end }}
+</div>
 {{ end }}
 
 {{ define "main" }}

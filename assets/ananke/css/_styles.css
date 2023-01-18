@@ -35,10 +35,6 @@ p {
   margin-bottom: 0.5em;
 }
 
-#mobile-dark-language {
-  display: none;
-}
-
 #btnBackToTop {
   background-color: var(--site-color);
   border: none;
@@ -113,12 +109,12 @@ p {
   display: block;
 }
 
-.padding-banner-lg {
+.p-banner-lg {
   padding-top: calc(8rem + 35px);
   padding-bottom: 8rem;
 }
 
-.padding-banner-sm {
+.p-banner-sm {
   padding-top: calc(4rem + 35px);
   padding-bottom: 4rem;
 }
@@ -355,6 +351,20 @@ textarea {
     margin-bottom: -2rem;
   }
 
+  .dark-gray-ns {
+    color: #333
+  }
+
+  .p-banner-lg-ns {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  .p-banner-sm-ns {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
   #btnBackToTop {
     bottom: 20px;
     right: 20px;
@@ -381,13 +391,11 @@ textarea {
 
   #menu-desktop,
   #small-menu,
-  #site-icon-close,
-  #desktop-light-language {
+  #site-icon-close {
     display: none;
   }
 
-  #site-icon-open,
-  #mobile-dark-language {
+  #site-icon-open {
     display: block;
   }
 
