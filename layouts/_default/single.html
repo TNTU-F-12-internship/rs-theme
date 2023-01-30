@@ -46,7 +46,7 @@
         <span class="f6 mv4 dib tracked"> - {{ i18n "wordCount" .WordCount }} </span>
       {{ end }}
     </header>
-    <div class="nested-copy-line-height lh-solid {{ $.Param "post_content_classes"  | default "serif"}} f4-5-l f5-m nested-links {{ $.Param "text_color" | default "dark-gray" }} {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl4-l" "pr4-l" }}">
+    <div class="nested-copy-line-height lh-solid {{ $.Param "post_content_classes"  | default "serif"}} f4-5-l f5-m nested-links {{ $.Param "text_color" | default "dark-gray" }}">
       {{- .Content -}}
       {{- partial "tags.html" . -}}
       <div class="mt6 instapaper_ignoref">

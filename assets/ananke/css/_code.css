@@ -2,8 +2,8 @@ pre, .pre  {
   overflow-x: auto;
   overflow-y: hidden;
   overflow:   scroll;
+  border-radius: 5px;
 }
-
 
 pre  code {
   display: block;
@@ -11,12 +11,11 @@ pre  code {
   white-space: pre;
   font-size: .875rem;
   line-height: 2;
-
 }
 
 pre {
-  background-color: #222;
-  color: #ddd;
+  background-color: hsl(0,0%,96.5%);
+  color: #333;
   white-space: pre;
 
   hyphens: none;

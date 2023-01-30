@@ -35,6 +35,16 @@ p {
   margin-bottom: 0.5em;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: rgba(0, 128, 128, 0.7);
+}
+
+::selection {
+  color: white;
+  background: rgba(0, 128, 128, 0.7);
+}
+
 #btnBackToTop {
   background-color: var(--site-color);
   border: none;
@@ -170,6 +180,17 @@ footer {
 .img-height-cover {
   object-fit: cover;
   height: 100%;
+}
+
+.img-scale-down {
+  object-fit: scale-down;
+}
+
+.language-block {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .link-active:focus {
