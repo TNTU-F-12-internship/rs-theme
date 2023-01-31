@@ -35,11 +35,13 @@ p {
   margin-bottom: 0.5em;
 }
 
-::-moz-selection { /* Code for Firefox */
+/* select any text */
+::-moz-selection { /* for Firefox */
   color: white;
   background: rgba(0, 128, 128, 0.7);
 }
 
+/* select any text */
 ::selection {
   color: white;
   background: rgba(0, 128, 128, 0.7);
@@ -202,9 +204,13 @@ footer {
 }
 
 .post-content h2 {
-  margin-top: 2em;
-  margin-bottom: 0.5em;
+  margin-top: 3em;
+  margin-bottom: 1em;
   font-size: 1.25em;
+}
+
+.post-content h3 {
+  margin-top: 2.5em;
 }
 
 .post-content figcaption h4 {
