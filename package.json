@@ -29,7 +29,7 @@
  "name": "gohugo-theme-ananke",
  "repository": {
   "type": "git",
-  "url": "git+https://gitlab.com/rs-site/rs-theme.git"
+  "url": "git+https://gitlab.com/rework-space.com/rs-site/rs-theme.git"
  },
  "version": "2.7.0"
 }
