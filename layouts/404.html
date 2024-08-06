@@ -11,8 +11,8 @@
     }
 
     if (readCookie('lang') === "ua") {
-        window.location.replace({{ .Site.BaseURL }} + 'en/404/');
+        window.location.replace('/en/404/');
     } else {
-        window.location.replace({{ .Site.BaseURL }} + 'ua/404/');
+        window.location.replace('/ua/404/');
     }
 </script>
