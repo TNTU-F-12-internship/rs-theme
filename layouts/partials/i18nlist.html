@@ -3,7 +3,7 @@
         <ul class="ba b--white-90 language-block {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }}">
             {{ range .Translations }}
             <li class="list tc f5 f4-ns fw4 dib pl2 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
-                <a class="hover-white no-underline white-90 dark-gray-ns language_icon" href="{{ .RelPermalink }}">{{ .Lang }}</a>
+                <a id="lang-btn" class="hover-white no-underline white-90 dark-gray-ns language_icon" href="{{ .RelPermalink }}">{{ .Lang }}</a>
             </li>
             {{ end}}
         </ul>
@@ -11,9 +11,26 @@
         <ul class="ba b--white-90 language-block {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3" }}">
             {{ range .Translations }}
             <li class="list tc f5 f4-ns fw4 dib pl2 {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
-                <a class="hover-white no-underline white-90 language_icon" href="{{ .RelPermalink }}">{{ .Lang }}</a>
+                <a id="lang-btn" class="hover-white no-underline white-90 language_icon" href="{{ .RelPermalink }}">{{ .Lang }}</a>
             </li>
             {{ end}}
         </ul>
     {{ end }}
 {{ end }}
+
+<script>
+    function createCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('lang-btn').addEventListener("click", function () {
+            createCookie('lang', {{ .Lang }}, 31);
+        });
+    });
+</script>
