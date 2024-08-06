@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html lang="{{ site.LanguageCode | default "en" }}" {{- with partialCached "func/GetLanguageDirection" "GetLanguageDirection" }} dir="{{ . }}" {{- end }}>
-  <head itemscope>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
-    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-    <meta name="generator" content="Hugo {{ hugo.Version }}">
-    {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-    {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
-    {{ $public := not .Params.private }}
+<head itemscope>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  {{/* NOTE: the Site's title, and if there is a page title, that is set too */}}
+  <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+  <meta name="generator" content="Hugo {{ hugo.Version }}">
+
+  <!-- Google Tag Manager -->
+  <script>
+    if (localStorage.getItem("doNotTrack") === null) {
+      localStorage.setItem("doNotTrack", "true"); // default value before any choice has been made
+    }
+  </script>
+  {{ if $.Site.Params.gtm }}
+  <script>
+    var doNotTrack = localStorage.getItem("doNotTrack");
+    if (doNotTrack === "false") {
+      var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+      if (dnt == "1" || dnt == "yes") {
+        doNotTrack = true;
+      }
+      if (!doNotTrack || doNotTrack === "false") {
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ $.Site.Params.gtm }}');
+      }
+    }
+  </script>
+  {{ end }}
+  <!-- End Google Tag Manager -->
+
+  {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
+  {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
+  {{ $public := not .Params.private }}
 
     {{ if and $production $public }}
       <meta name="robots" content="index, follow">
@@ -37,24 +64,28 @@
     {{- template "_default/schema.html" . -}}
     {{- template "_default/twitter_cards.html" . -}}
 
-    {{ if eq (getenv "HUGO_ENV") "production" | or (eq .Site.Params.env "production")  }}
-      {{ template "_default/google_analytics.html" . }}
-    {{ end }}
-	{{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
+  {{ block "head" . }}{{ partial "head-additions.html" . }}{{ end }}
+</head>
 
-  </head>
+<body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
 
-  <body class="ma0 {{ $.Param "body_classes"  | default "avenir bg-near-white"}}{{ with getenv "HUGO_ENV" }} {{ . }}{{ end }}">
-    <div class="page-container">
-      <button onclick="topFunction()" id="btnBackToTop" ></button>
-      <div class="page-content">
-        {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
-        <main class="">
-          {{ block "main" . }}{{ end }}
-        </main>
-      </div>
-    {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
-    </div>
-    {{ partial "consent.html" . }}
-  </body>
+<!-- Google Tag Manager (noscript) -->
+{{ if $.Site.Params.gtm }}
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ $.Site.Params.gtm }}"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+{{ end }}
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="page-container">
+  <button onclick="topFunction()" id="btnBackToTop" ></button>
+  <div class="page-content">
+    {{ block "header" . }}{{ partial "site-header.html" .}}{{ end }}
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+  </div>
+  {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
+</div>
+{{ partial "consent.html" . }}
+</body>
 </html>

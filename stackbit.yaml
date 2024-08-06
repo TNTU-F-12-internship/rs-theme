@@ -56,6 +56,9 @@ models:
       - type: string
         name: googleAnalytics
         label: Google Analytics ID
+      - type: string
+        name: google_tag_manager
+        label: Google Tag Manager ID
       - type: object
         name: sitemap
         label: sitemap
