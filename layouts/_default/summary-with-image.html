@@ -1,5 +1,5 @@
 {{ $featured_image := partial "func/GetFeaturedImage.html" . }}
-<article class="bb b--black-10">
+<article>
   <div class="db pv4 ph0 no-underline dark-gray">
     <div class="flex flex-column flex-row-l flex-row-m">
       {{ if .Params.summary_image }}
@@ -30,6 +30,16 @@
             {{ .Params.date_prefix }}  {{- .Date | time.Format (default "January 2, 2006" .Site.Params.date_format) -}}
           </time>
         {{end}}
+        <p class="color-link">
+          <strong>{{ .Site.Params.tags }}:</strong>
+          {{ $baseLangURL := "/blogs/" }}
+          {{ if eq .Site.LanguageCode "ua" }}
+          {{ $baseLangURL = "/ua/blogs/" }}
+          {{ end }}
+          {{ range .Params.blogs }}
+          <a href="{{ $baseLangURL | relURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        </p>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
           {{ .Summary }}
         </div>
