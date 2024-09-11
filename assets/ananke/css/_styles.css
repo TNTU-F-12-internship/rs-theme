@@ -4,6 +4,11 @@
   margin-bottom: 1em;
 }
 
+.relative.w-100.bb.b--black-10:last-child {
+  border-bottom-style: solid;
+  border-bottom-width: 0px;
+}
+
 .lh-copy blockquote {
   display: block;
   font-size: .875em;
@@ -33,6 +38,20 @@
 p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.site-color-h:hover {
+  background-color: var(--site-color);
+  border-color: var(--site-color);
+  color: white;
+}
+
+.site-color-h {
+  transition: background-color 0.1s, border-color 0.1s, color 0.1s;
+}
+
+.titlecase::first-letter {
+  text-transform: uppercase;
 }
 
 /* select any text */
@@ -307,6 +326,17 @@ textarea {
   appearance: none;
 }
 
+.main-content {
+  order: 1;
+}
+
+.sticky-sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem;
+  order: 2;
+}
+
 @media all and (min-width: 1200px) {
   .f4-5-l {
     font-size: 1.12rem;
@@ -466,4 +496,19 @@ textarea {
     border-radius: 5px;
     background-color: #fff;
   }
+
+  .sticky-sidebar {
+    position: static;
+    top: auto;
+    width: 100%;
+    margin: 1rem;
+    order: 1;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 0;
+    order: 2;
+  }
 }
+

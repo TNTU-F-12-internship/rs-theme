@@ -18,25 +18,44 @@
 {{/* Derive the section name  */}}
 {{ $main_section_name := index (.Site.Params.mainSections) 0 }}
 
-<div class="pv4 w-90 w-60-l mw7-m center">
-
-  {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
-
-  <div class="w-100">
-    {{/* Range through the first $n_posts items of the section */}}
-    {{ range .Paginator.Pages }}
-    <div class="relative w-100">
-      {{ .Render "summary-with-image" }}
+<div class="flex flex-wrap items-start pt4 w-90 w-80-l mw7-m center bb b--black-10 mb4">
+  <div class="main-content w-80 pr4">
+    {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
+    <div class="w-100">
+      {{/* Range through the first $n_posts items of the section */}}
+      {{ range .Paginator.Pages }}
+      <div class="relative w-100 bb b--black-10">
+        {{ .Render "summary-with-image" }}
+      </div>
+      {{ end }}
     </div>
-    {{ end }}
   </div>
-  {{ template "_default/pagination.html" . }}
+
+  <div class="sticky-sidebar w-20 pv4 pv0-ns">
+    <div class="filter-blogs ba br3 b--light-silver">
+      <div class="ma0 pa2">
+        {{ $blogs := .Site.Taxonomies.blogs }}
+        {{ $baseLangURL := "/blogs/" }}
+        {{ if eq .Site.LanguageCode "ua" }}
+        {{ $baseLangURL = "/ua/blogs/" }}
+        {{ end }}
+        {{ range $blog, $pages := $blogs }}
+        <a class="pa2 ma2 ba br3 b--light-silver black-50 no-underline inline-flex site-color-h" href="{{ $baseLangURL }}{{ $blog }}">
+          <span>{{ $blog }}</span>
+          <span>({{ len $pages }})</span>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
 </div>
+
 {{ end }}
 
 {{ if .Site.Params.footerContactButton }}
-<div class="tc pt4">
-  <a class="f6 link w-20 w-30-m w-50-ns dim br2 ph3 pv2 mb2 dib white"
+<div class="tc ">
+  {{ template "_default/pagination.html" . }}
+  <a class="f6 link w-20 w-30-m w-50-ns dim br2 ph3 pv2 dib white"
      style="background-color:{{ $.Param "middle_title_color_code" | default "#555555" }};" href="{{ .Site.Params.footerContactButtonPath }}">
   {{ .Site.Params.footerContactButton }}
   </a>
