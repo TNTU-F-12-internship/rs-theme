@@ -37,7 +37,7 @@
           {{ $baseLangURL = "/ua/blogs/" }}
           {{ end }}
           {{ range .Params.blogs }}
-          <a href="{{ $baseLangURL | relURL }}{{ . | urlize }}">{{ . }}</a>
+          <a href="{{ $baseLangURL | relURL }}{{ . | urlize }}">{{ . }};</a>
           {{ end }}
         </p>
         <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">

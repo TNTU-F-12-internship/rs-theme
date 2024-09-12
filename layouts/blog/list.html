@@ -33,21 +33,34 @@
 
   <div class="sticky-sidebar w-20 pv4 pv0-ns">
     <div class="filter-blogs ba br3 b--light-silver">
-      <div class="ma0 pa2">
-        {{ $blogs := .Site.Taxonomies.blogs }}
-        {{ $baseLangURL := "/blogs/" }}
+      <div class="pa2">
+        {{ $blogURL := "/blog/" }}
         {{ if eq .Site.LanguageCode "ua" }}
-        {{ $baseLangURL = "/ua/blogs/" }}
+        {{ $blogURL = "/ua/blog/" }}
         {{ end }}
-        {{ range $blog, $pages := $blogs }}
-        <a class="pa2 ma2 ba br3 b--light-silver black-50 no-underline inline-flex site-color-h" href="{{ $baseLangURL }}{{ $blog }}">
-          <span>{{ $blog }}</span>
-          <span>({{ len $pages }})</span>
+        <a class="mv2 pa2 ba br3 b--light-silver black-50 no-underline inline-flex items-center justify-center
+                  site-color-h w-100 {{ if eq $blogURL $.RelPermalink }}current-page{{ end }}" href="{{ $blogURL }}"
+        >
+          <b>{{ .Site.Params.all_articles }}</b>
         </a>
-        {{ end }}
+        <div>
+          {{ $blogs := .Site.Taxonomies.blogs }}
+          {{ $baseLangURL := "/blogs/" }}
+          {{ if eq .Site.LanguageCode "ua" }}
+          {{ $baseLangURL = "/ua/blogs/" }}
+          {{ end }}
+          {{ range $blog, $pages := $blogs }}
+          {{ $currentURL := printf "%s%s/" $baseLangURL $blog }}
+          <a class="mv2 mr2 pa2 ba br3 b--light-silver black-50 no-underline inline-flex site-color-h {{ if eq $currentURL $.RelPermalink }}current-page{{ end }}" href="{{ $currentURL }}">
+            <span>{{ $blog }}</span>
+            <span>({{ len $pages }})</span>
+          </a>
+          {{ end }}
+        </div>
       </div>
     </div>
   </div>
+
 </div>
 
 {{ end }}
