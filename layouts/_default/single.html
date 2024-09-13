@@ -47,14 +47,14 @@
           {{ end }}
 
           <!-- Taxonomy Tags Section -->
-          <p class="color-link">
+          <p class="tag-link ">
               <strong>{{ .Site.Params.tags }}:</strong>
               {{ $baseLangURL := "/blogs/" }}
               {{ if eq .Site.LanguageCode "ua" }}
               {{ $baseLangURL = "/ua/blogs/" }}
               {{ end }}
               {{ range .Params.blogs }}
-              <a href="{{ $baseLangURL | relURL }}{{ . | urlize }}">{{ . }};</a>
+              <a href="{{ $baseLangURL | relURL }}{{ . | urlize }}">{{ . }}</a>
               {{ end }}
           </p>
       </header>
