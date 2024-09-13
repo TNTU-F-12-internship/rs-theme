@@ -9,7 +9,7 @@
       {{ partial "site-navigation.html" . }}
       {{ if strings.Contains .Permalink "/blogs/" }}
       <div class="tc p-banner-sm ph3 ph4-ns w-70 w-100-ns center">
-        <h1 class="f2 f1-l f3-ns white-90 lh-title titlecase">{{ .Title | default .Site.Title }}</h1>
+        <h1 class="f2 f1-l f3-ns white-90 lh-title titlecase">{{ .Site.Params.blog }}</h1>
         {{ with .Params.description }}
         <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
           {{ . }}
@@ -82,7 +82,7 @@
     <div class="bg-black-30">
       {{ if strings.Contains .Permalink "/blogs/" }}
       <div class="tc p-banner-sm p-banner-sm-ns ph3 ph4-ns w-70 w-100-ns center">
-        <h1 class="f2 f1-l f3-ns white-90 lh-title">{{ .Title | default .Site.Title }}</h1>
+        <h1 class="f2 f1-l f3-ns white-90 lh-title">{{ .Site.Params.blog }}</h1>
         {{ with .Params.description  }}
         <h2 class="fw1 f5 f3-l white-80 measure-wide-l center lh-copy mt3 mb4">
           {{ . }}
