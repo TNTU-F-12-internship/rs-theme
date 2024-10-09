@@ -4,7 +4,7 @@
    Navigate to the Issues section of project and click on **"New Issue"**.
 
 2. **Input Issue Information**  
-   Fill out all the necessary details for your new issue. If it’s relevant to your work, assign it to yourself. Click **"Create Issue"** when you’re done.
+   Fill out all the necessary details for your new issue. If applicable, utilize the available issue templates to standardize your submissions. If the issue is relevant to your work, assign it to yourself. Click **"Create Issue"** when you’re done.
 
 3. **Initiate a Merge Request**  
    On the subsequent page, select **"Create Merge Request"**.
