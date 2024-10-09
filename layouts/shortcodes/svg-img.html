@@ -1,0 +1,14 @@
+{{- $alt := .Get "alt" -}}
+{{- $res := resources.Get (.Get "src") -}}
+{{- $css_class := .Get "css_class" -}}
+
+<figure>
+    <img
+            src="{{ $res.RelPermalink }}"
+            alt="{{ $alt }}"
+            {{- if $css_class -}}
+                class="{{ $css_class }}"
+            {{- end -}}
+    >
+    <figcaption>{{ $alt }}</figcaption>
+</figure>
