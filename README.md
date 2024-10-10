@@ -1,3 +1,20 @@
+### GitLab Workflow
+
+1. **Create a New Issue**  
+   Describe the problem or task, add relevant links, and suggest potential solutions. Use templates to standardize the process.
+
+2. **Create a Merge Request**  
+   Once the issue is created, open a Merge Request. Make sure to:
+   - Mark it as **draft** if necessary.
+   - Enable **delete source branch after merging**.
+     GitLab will create new branch automatically.
+
+3. **Work on the Merge Request**  
+   After making your changes, request a review. When ready, mark the Merge Request as **ready for merging**.
+
+4. **Merge and Delete the Branch**  
+   Once the review is complete and approved, merge the changes and delete the branch.
+
 # Ananke, A theme for [Hugo](https://gohugo.io/), a framework for building websites.
 
 The intent of this theme is to provide a solid starting place for Hugo sites with basic features and include best practices for performance, accessibility, and rapid development.
