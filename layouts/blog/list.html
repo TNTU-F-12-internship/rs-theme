@@ -19,14 +19,14 @@
 {{ $main_section_name := index (.Site.Params.mainSections) 0 }}
 
 <div class="flex flex-wrap items-start pt4 w-90 w-80-l mw7-m center bb b--black-10 mb4">
+  {{ $allPages := where .Pages "Params.not_translate" "ne" true }}
+  {{ $paginator := .Paginate $allPages }}
   <div class="main-content w-80 pr4">
-    {{ $n_posts := $.Param "recent_posts_number" | default 3 }}
     <div class="w-100">
-      {{/* Range through the first $n_posts items of the section */}}
-      {{ range .Paginator.Pages }}
-      <div class="relative w-100 bb b--black-10">
-        {{ .Render "summary-with-image" }}
-      </div>
+      {{ range $paginator.Pages }}
+        <div class="relative w-100 bb b--black-10">
+          {{ .Render "summary-with-image" }}
+        </div>
       {{ end }}
     </div>
   </div>
