@@ -12,10 +12,11 @@
     </div>
     <div class="flex items-center justify-between flex-column-reverse-m flex-column-reverse-ns ph3 ph3-ns w-70 w-80-ns center">
         <div class="tc f6 f7-ns fw4 no-underline black-70 dn dib pv4 pv3-m pv3-ns ph3 ph4-ns">
+            Copyright &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }}, {{ now.Format "2006"}} All rights reserved{{ end }}
+            &nbsp;|&nbsp;
             <a class="hover-black black-70" href="{{ .Site.Home.Permalink }}{{ .Site.Params.footerPrivacyUrl }}">
                 {{ .Site.Params.footerPrivacy }}
             </a>
-            Copyright &copy; {{ with .Site.Copyright | default .Site.Title }} {{ . | safeHTML }}, {{ now.Format "2006"}} All rights reserved.{{ end }}
         </div>
         <div>
             {{ partial "social-follow.html" . }}
