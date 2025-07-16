@@ -37,8 +37,19 @@
 </article>
 {{ end }}
 
+
+<section id="ict-security-section">
+    <div class="container">
+        {{ with .Site.GetPage "/ict-security" }}
+       <h2 class="tc f2 fw7 ma0 mb3" style="color: #008080;">{{ .Title }}</h2> 
+            {{ partial "img-right" . }}
+        {{ end }}
+    </div>
+</section>
+
 {{/* Recent Blog Posts Section */}}
 {{ partial "recent-blog-posts.html" . }}
+
 
 <div class="center mt2 tc f4 f5-ns fw4 pt4-ns ph5-ns lh-title" style="color:{{ $.Param "middle_title_color_code" | default "#555555" }};">
 {{ .Params.final_message }}
