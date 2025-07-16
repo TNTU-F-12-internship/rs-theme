@@ -43,13 +43,15 @@
         {{ with .Site.GetPage "/ict-services" }}
         <h2 class="tc f2 fw7 ma0 mb3" style="color: #008080;">{{ .Title }}</h2>
             {{ partial "little-icons" . }}
+        {{ end }}
+    </div>
+</section>
 
 <section id="ict-security-section">
     <div class="container">
         {{ with .Site.GetPage "/ict-security" }}
        <h2 class="tc f2 fw7 ma0 mb3" style="color: #008080;">{{ .Title }}</h2> 
             {{ partial "img-right" . }}
-
         {{ end }}
     </div>
 </section>
